@@ -1,0 +1,10 @@
+Dataset	Number of Genes	Number of Cells	Has Raw Counts	Size (GB)
+FrangiehIzar2021_protein.h5ad	24.0	218331.0	Yes	
+PapalexiSatija2021_eccite_arrayed_protein.h5ad	4.0	8984.0	Yes	
+PapalexiSatija2021_eccite_protein.h5ad	4.0	20729.0	Yes	
+SchraivogelSteinmetz2020_TAP_SCREEN__chromosome_11_screen.h5ad	3185.0	120310.0	Yes	
+SchraivogelSteinmetz2020_TAP_SCREEN__chromosome_8_screen.h5ad	4191.0	112260.0	Yes	
+SrivatsanTrapnell2020_sciplex3.h5ad	110984.0	799317.0	Yes	
+GasperiniShendure2019_atscale.h5ad				1.738121328875422
+GasperiniShendure2019_highMOI.h5ad				0.3896072432398796
+GasperiniShendure2019_lowMOI.h5ad				0.300553466193378
