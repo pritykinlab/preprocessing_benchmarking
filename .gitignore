@@ -1,2 +1,4 @@
-datasets/
-yujie_results/
+datasets/*
+results/*
+*/.ipynb_checkpoints/*
+*/__pycache__/*

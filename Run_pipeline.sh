@@ -5,7 +5,7 @@
 #SBATCH --ntasks 1
 #SBATCH --mem 110000
 #SBATCH --time 7-0:0:0
-#SBATCH --cpus-per-task 20
+#SBATCH --cpus-per-task 1
 
 module load python
 python main.py
