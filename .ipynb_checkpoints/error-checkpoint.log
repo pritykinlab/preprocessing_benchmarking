@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/main.py", line 32, in <module>
+    pipeline.run_pipeline(input_adata_file="/Genomics/pritykinlab/share/perturbseq/GW_perturbseq/K562_essential_my_raw_all_genes_small_v2.h5ad",
+  File "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/utils/pipeline.py", line 117, in run_pipeline
+    assert False, f"File {evaluate_file} does not exist!"
+AssertionError: File cleaned_input__hvg_method%cell_ranger__num_hvg%3000__norm_method%pearson_residuals__label_col%gene__num_nn%20__num_pcs_list%10.tsv does not exist!
