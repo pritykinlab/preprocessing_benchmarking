@@ -10,28 +10,15 @@ from scipy.sparse import csr_matrix
 from itertools import product
 from sklearn.neighbors import NearestNeighbors
 
-    
-
-# Example pipeline configuration
-test_params= [
-    # Specify each step with its parameters
-    (processing_steps.hvg, {'hvg_method': ['seurat', 'cell_ranger', 'pearson_residuals', 'min_cells', 'total_counts'], 'num_hvg': [2000, 3000, 4000, 5000, 6000, 7000, 8000]}),
-    (processing_steps.norm, {'norm_method': ['log_zscore', 'pearson_residuals']}),
-    (processing_steps.pca, {'max_pcs': [200]}),
-    (processing_steps.evaluate, {'label_col': ['gene'],'num_nn': [20],'num_pcs_list': [10, 25, 50, 75, 100, 125, 150, 175, 200]})
-]
-
-default_slurm_params = {
-    'cpus-per-task': 4,
-    'mem-per-cpu': '32G',
-}
-
-
-input_datasets_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/datasets/harmonized_perturb_datasets"
 output_base_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/results"
+input_datasets_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/datasets/harmonized_perturb_datasets"
+
+metadata_df = pd.read_csv("../dataset_metadata/selected_datasets_summary.tsv", sep='\t')
 
 # Loop through each file in the input datasets directory
-for dataset_file in os.listdir(input_datasets_dir):
+for idx, row in metadata_df.iterrows():
+    size = row['Size (GB)']
+    dataset_file = row['Dataset']
     # Construct the full path to the dataset file
     dataset_path = os.path.join(input_datasets_dir, dataset_file)
     
@@ -46,6 +33,21 @@ for dataset_file in os.listdir(input_datasets_dir):
     # Create the output directory if it does not exist
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
+
+    # Example pipeline configuration
+    test_params= [
+        # Specify each step with its parameters
+        (processing_steps.hvg, {'hvg_method': ['seurat', 'cell_ranger', 'pearson_residuals', 'min_cells', 'total_counts'], 'num_hvg': [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]}),
+        (processing_steps.norm, {'norm_method': ['log_zscore', 'pearson_residuals']}),
+        (processing_steps.pca, {'max_pcs': [200]}),
+        (processing_steps.evaluate, {'label_col': ['perturbation'],'num_nn': [20],'num_pcs_list': [10, 25, 50, 75, 100, 125, 150, 175, 200, 350, 400, 500]})
+    ]
+
+    default_slurm_params = {
+        'cpus-per-task': min(20, int(size)*10+1),
+        'mem-per-cpu': '32G',
+    }
+    print(default_slurm_params)
     
     # Run the pipeline with the current dataset file and unique output directory
     pipeline.run_pipeline(input_adata_file=dataset_path,
@@ -53,3 +55,4 @@ for dataset_file in os.listdir(input_datasets_dir):
                           default_slurm_params=default_slurm_params,
                           pipeline_params=test_params,
                           verbose=True)
+
