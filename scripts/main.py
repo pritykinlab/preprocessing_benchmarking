@@ -14,6 +14,7 @@ output_base_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/result
 input_datasets_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/datasets/harmonized_perturb_datasets"
 
 metadata_df = pd.read_csv("../dataset_metadata/selected_datasets_summary.tsv", sep='\t')
+metadata_df = metadata_df.sort_values(['Size (GB)'])
 
 # Loop through each file in the input datasets directory
 for idx, row in metadata_df.iterrows():
@@ -44,7 +45,7 @@ for idx, row in metadata_df.iterrows():
     ]
 
     default_slurm_params = {
-        'cpus-per-task': min(20, int(size)*10+1),
+        'cpus-per-task': 2,
         'mem-per-cpu': '32G',
     }
     print(default_slurm_params)
@@ -54,5 +55,6 @@ for idx, row in metadata_df.iterrows():
                           output_dir=output_dir,
                           default_slurm_params=default_slurm_params,
                           pipeline_params=test_params,
-                          verbose=True)
+                          verbose=True,
+                          parallel_type='slurm')
 

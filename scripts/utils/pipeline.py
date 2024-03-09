@@ -174,9 +174,8 @@ def prepare_cleaned_input(input_adata_file, output_dir):
         if not isinstance(adata.X, scipy.sparse.spmatrix):
             adata.X = csr_matrix(adata.X)
         adata.layers['raw'] = adata.X
+        sc.pp.filter_cells(adata, min_genes=100)
         adata.write_h5ad(output_adata_file)
         print("Finished preparing 'cleaned_input.h5ad'")
     return output_adata_file
-
-
 
