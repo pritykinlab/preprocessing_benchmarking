@@ -40,7 +40,7 @@ for idx, row in metadata_df.iterrows():
         # Specify each step with its parameters
         (processing_steps.hvg, {'hvg_method': ['seurat', 'cell_ranger', 'pearson_residuals', 'min_cells', 'total_counts'], 'num_hvg': [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]}),
         (processing_steps.norm, {'norm_method': ['log_zscore', 'pearson_residuals']}),
-        (processing_steps.pca, {'max_pcs': [200]}),
+        (processing_steps.pca, {'max_pcs': [500]}),
         (processing_steps.evaluate, {'label_col': ['perturbation'],'num_nn': [20],'num_pcs_list': [10, 25, 50, 75, 100, 125, 150, 175, 200, 350, 400, 500]})
     ]
 

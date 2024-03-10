@@ -100,6 +100,9 @@ def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs_list):
 
     results_dict_list = []
     for num_pcs in num_pcs_list:
+        max_num_pcs = adata.obs['X_pca'].shape[1]
+        if num_pcs > max_num_pcs:
+            raise ValueError("Not enough PCs to subset")
         X_pca = adata.obsm['X_pca'][:, :num_pcs]
         nbrs = NearestNeighbors(n_neighbors=num_nn, algorithm='brute', n_jobs=-1).fit(X_pca)
         _, knn_indices = nbrs.kneighbors(X_pca)

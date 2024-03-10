@@ -18,6 +18,12 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
         Adata file must have a raw input
     
     """
+
+    aggregated_filename = os.path.join(output_dir, "aggregated_results.tsv")
+    if os.path.exists(aggregated_filename):
+        print("Already Created aggregated data, so skipping run")
+        return
+
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     if verbose:
