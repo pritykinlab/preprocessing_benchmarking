@@ -10,7 +10,7 @@ from scipy.sparse import csr_matrix
 from itertools import product
 from sklearn.neighbors import NearestNeighbors
 
-def run(row):
+def run(row, default_slurm_params):
     output_base_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/results"
     input_datasets_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/datasets/harmonized_perturb_datasets"
     size = row['Size (GB)']
@@ -34,10 +34,6 @@ def run(row):
         (processing_steps.evaluate, {'label_col': ['perturbation'],'num_nn': [20],'num_pcs_list': [10, 500]})
     ]
 
-    default_slurm_params = {
-        'cpus-per-task': 2,
-        'mem-per-cpu': '32G',
-    }
     print(default_slurm_params)
 
     # Run the pipeline with the current dataset file and unique output directory
@@ -46,4 +42,5 @@ def run(row):
                           default_slurm_params=default_slurm_params,
                           pipeline_params=test_params,
                           verbose=True,
-                          parallel_type='regular')
+                          parallel_type='slurm')
+

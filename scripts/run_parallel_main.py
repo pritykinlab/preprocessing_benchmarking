@@ -21,16 +21,15 @@ import sys
 sys.path.append("/Genomics/pritykinlab/dillon/software/slurm_submitter")
 import slurm_submitter
 
-
-
-# Prepare the list of arguments for each task
-arguments_list = [{'row':row} for idx, row in metadata_df.iterrows()]
-
 slurm_params = {
     'cpus-per-task': 2,
-    'mem-per-cpu': '64GB',
+    'mem-per-cpu': '32GB',
     # Add more parameters as needed
 }
+
+# Prepare the list of arguments for each task
+arguments_list = [{'row':row, 'default_slurm_params':slurm_params} for idx, row in metadata_df.iterrows()]
+
 
 results = slurm_submitter.run(run_parallel.run, arguments_list, slurm_params=slurm_params, run_type='slurm')
 
