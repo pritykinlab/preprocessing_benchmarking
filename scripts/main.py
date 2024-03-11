@@ -2,6 +2,9 @@ from utils import pipeline
 from utils import processing_steps
 
 import os
+os.environ["OPENBLAS_NUM_THREADS"] = "64"
+# Now import other libraries
+
 import scanpy as sc
 import pandas as pd
 import numpy as np

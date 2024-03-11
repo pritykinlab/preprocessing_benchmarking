@@ -1,0 +1,1243 @@
+Finiding Constant Params...
+Constant Params:  dict_keys(['default_slurm_params'])
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/94367675/slurm-4296895.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/241864604/slurm-4296897.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/953883133/slurm-4296909.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 0 out of 29 jobs have completed. Missing result files: 29, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/94367675/slurm-4296895.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/241864604/slurm-4296897.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/953883133/slurm-4296909.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 0 out of 29 jobs have completed. Missing result files: 29, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/94367675/slurm-4296895.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/241864604/slurm-4296897.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/953883133/slurm-4296909.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 0 out of 29 jobs have completed. Missing result files: 29, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/94367675/slurm-4296895.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/241864604/slurm-4296897.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/953883133/slurm-4296909.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 0 out of 29 jobs have completed. Missing result files: 29, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/94367675/slurm-4296895.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/241864604/slurm-4296897.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/953883133/slurm-4296909.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 0 out of 29 jobs have completed. Missing result files: 29, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/94367675/slurm-4296895.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/241864604/slurm-4296897.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/953883133/slurm-4296909.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 0 out of 29 jobs have completed. Missing result files: 29, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/241864604/slurm-4296897.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/953883133/slurm-4296909.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 1 out of 29 jobs have completed. Missing result files: 28, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/241864604/slurm-4296897.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 2 out of 29 jobs have completed. Missing result files: 27, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 3 out of 29 jobs have completed. Missing result files: 26, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 3 out of 29 jobs have completed. Missing result files: 26, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 3 out of 29 jobs have completed. Missing result files: 26, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 3 out of 29 jobs have completed. Missing result files: 26, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/182762282/slurm-4296907.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 3 out of 29 jobs have completed. Missing result files: 26, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 4 out of 29 jobs have completed. Missing result files: 25, Missing slurm outputs: 0
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/418997445/slurm-4296882.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/621606686/slurm-4296883.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/43152628/slurm-4296884.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/245365840/slurm-4296885.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/330508166/slurm-4296886.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/689320808/slurm-4296887.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/781603376/slurm-4296888.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/566466255/slurm-4296889.out
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=4296889.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/542152597/slurm-4296890.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/627008035/slurm-4296891.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/386230350/slurm-4296892.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/262157945/slurm-4296893.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/646544573/slurm-4296894.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/873086894/slurm-4296896.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/388102902/slurm-4296898.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/962468356/slurm-4296899.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/255486913/slurm-4296900.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/817656288/slurm-4296901.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/603816684/slurm-4296902.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/710492762/slurm-4296903.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/666350570/slurm-4296904.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/194026215/slurm-4296905.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/398681611/slurm-4296906.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/638234800/slurm-4296908.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Job potentially failing output or still running:
+/Genomics/pritykinlab/dillon/software/slurm_submitter/temp_dir/151369505/slurm-4296910.out
+Processing:   0%|          | 0/1 [00:00<?, ?it/s]
+Progress Status: 4 out of 29 jobs have completed. Missing result files: 25, Missing slurm outputs: 0
