@@ -19,8 +19,7 @@ def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
 
     adata_original = adata.copy()
 
-    # Apply HVG selection based on the method
-    if hvg_method in ['seurat', 'cell_ranger', 'seurat_v3', 'pearson_residuals', 'pearson_residuals_1']:
+    if hvg_method in ['seurat', 'cell_ranger', 'seurat_v3', 'pearson_residuals', 'pearson_residuals_1', 'min_cells', 'total_counts']:
         if hvg_method == 'seurat':
             sc.pp.normalize_total(adata)
             sc.pp.log1p(adata)
@@ -34,7 +33,12 @@ def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
         elif hvg_method == 'seurat_v3':
             sc.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='seurat_v3')
             genes_to_keep = adata.var.highly_variable
-        elif hvg_method == 'pearson_residuals' or hvg_method == 'pearson_residuals_1':
+        elif hvg_method == 'pearson_residuals':
+            sc.experimental.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='pearson_residuals')
+            genes_to_keep = adata.var.highly_variable
+        elif hvg_method == 'pearson_residuals_1':
+            sc.experimental.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='pearson_residuals', theta=1)
+            genes_to_keep = adata.var.highly_variable
             sc.experimental.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='pearson_residuals', theta=1 if hvg_method == 'pearson_residuals_1' else None)
             genes_to_keep = adata.var.highly_variable
         elif hvg_method == 'min_cells':
@@ -96,6 +100,9 @@ def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs_list):
 
     results_dict_list = []
     for num_pcs in num_pcs_list:
+        max_num_pcs = adata.obsm['X_pca'].shape[1]
+        if num_pcs > max_num_pcs:
+            raise ValueError("Not enough PCs to subset")
         X_pca = adata.obsm['X_pca'][:, :num_pcs]
         nbrs = NearestNeighbors(n_neighbors=num_nn, algorithm='brute', n_jobs=-1).fit(X_pca)
         _, knn_indices = nbrs.kneighbors(X_pca)
@@ -119,5 +126,10 @@ def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs_list):
     results_df = pd.DataFrame(results_dict_list)
     results_df = results_df.groupby(['num_PCs', 'label']).mean().reset_index().drop(columns=['cell_index'])
     results_df.to_csv(output_file, sep="\t", index=False)
+
+
+
+
+
 
 
