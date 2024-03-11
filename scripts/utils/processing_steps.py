@@ -9,6 +9,8 @@ from sklearn.neighbors import NearestNeighbors
 
 
 def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
+    print(f"input_adata_file: {input_adata_file}, output_adata_file: {output_adata_file}, hvg_method: {hvg_method}, num_hvg: {num_hvg}")
+    
     # Check if the output file already exists
     if os.path.exists(output_adata_file):
         print(f"File {output_adata_file} already exists. Skipping HVG.")
@@ -59,6 +61,12 @@ def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
 
 
 def norm(input_adata_file, output_adata_file, norm_method):
+    print(f"input_adata_file: {input_adata_file}")
+    print(f"output_adata_file: {output_adata_file}")
+    print(f"norm_method: {norm_method}")
+
+    # Rest of your function code goes here
+
     # Check if the output file already exists
     if os.path.exists(output_adata_file):
         print(f"File {output_adata_file} already exists. Skipping normalization.")
@@ -83,6 +91,9 @@ def norm(input_adata_file, output_adata_file, norm_method):
 
 
 def pca(input_adata_file, output_adata_file, max_pcs):
+    print(f"input_adata_file: {input_adata_file}")
+    print(f"output_adata_file: {output_adata_file}")
+    print(f"max_pcs: {max_pcs}")
     # Check if the output file already exists
     if os.path.exists(output_adata_file):
         print(f"File {output_adata_file} already exists. Skipping PCA.")
@@ -93,6 +104,13 @@ def pca(input_adata_file, output_adata_file, max_pcs):
     print("Finished pca")
 
 def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs_list):
+    print(f"input_adata_file: {input_adata_file}")
+    print(f"output_file: {output_file}")
+    print(f"label_col: {label_col}")
+    print(f"num_nn: {num_nn}")
+    print(f"num_pcs_list: {num_pcs_list}")
+    # Rest of your function code goes here
+
     adata = sc.read_h5ad(input_adata_file)
 
     if not isinstance(num_pcs_list, list):
