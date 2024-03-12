@@ -1,6 +1,13 @@
+# Ignore directories
+.ipynb_checkpoints/
+__pycache__/
+
+# Ignore all .out files
+*.out
+
+# Ignore specific directories (if needed)
 datasets/*
 results/*
-/__pycache__/
-/*.out
-.ipynb_checkpoints/
+
+*.pyc
 
