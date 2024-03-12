@@ -48,14 +48,13 @@ for idx, row in metadata_df.iterrows():
 #    ]
     test_params= [
         # Specify each step with its parameters
-        (processing_steps.hvg, {'hvg_method': ['min_cells'], 'num_hvg': [1000, 8000]}),
-        (processing_steps.norm, {'norm_method': ['log_zscore', 'pearson_residuals']}),
-        (processing_steps.pca, {'max_pcs': [500]}),
-        (processing_steps.evaluate, {'label_col': ['perturbation'],'num_nn': [20],'num_pcs_list': [10, 500]})
+        (processing_steps.hvg_norm, {'hvg_norm_combo': ['Pearson Residual + Pearson Residual', 'Pearson Residual + log_zscore', 'seurat + log_zscore', 'seurat + log'], 'num_hvg': [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]}),
+        (processing_steps.pca, {'max_pcs': [100]}),
+        (processing_steps.evaluate, {'label_col': ['perturbation'],'num_nn': [20, 40],'num_pcs_list': [25, 50, 100]})
     ]
 
     default_slurm_params = {
-        'cpus-per-task': 2,
+        'cpus-per-task': 1,
         'mem-per-cpu': '32G',
     }
     print(default_slurm_params)
