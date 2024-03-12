@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TO DO
 
 
@@ -20,3 +21,14 @@ HVG linked with different normalization
 PC = [25, 50, 100]
 Different k=20, 40
 
+=======
+# scRNA-seq preprocessing benchmarking
+
+### Flexible pipeline
+
+- main.py
+
+- pipeline.py (fixed)
+
+- processing_steps.py (customized based on your parameters of interest)
+>>>>>>> 961549f625675990b89601f27814ed9028194c80

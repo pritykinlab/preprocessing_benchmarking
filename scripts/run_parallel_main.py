@@ -22,7 +22,7 @@ sys.path.append("/Genomics/pritykinlab/dillon/software/slurm_submitter")
 import slurm_submitter
 
 slurm_params = {
-    'cpus-per-task': 2,
+    'cpus-per-task': 1,
     'mem-per-cpu': '32GB',
     # Add more parameters as needed
 }
