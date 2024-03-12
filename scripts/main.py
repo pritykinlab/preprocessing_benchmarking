@@ -65,7 +65,7 @@ for idx, row in metadata_df.iterrows():
                           default_slurm_params=default_slurm_params,
                           pipeline_params=test_params,
                           verbose=True,
-                          parallel_type='regular')
+                          parallel_type='slurm')
 
 
 
