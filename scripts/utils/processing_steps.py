@@ -103,27 +103,50 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
     sc.pp.filter_genes(adata, min_cells=3)
     adata_original = adata.copy()
 
-    # Apply HVG selection with Pearson Residuals
-    if 'Pearson Residual' in hvg_norm_combo:
+    # Apply HVG selection & normalization method
+    if hvg_norm_combo == 'Pearson Residual + Pearson Residual':
         sc.experimental.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='pearson_residuals')
         genes_to_keep = adata.var.highly_variable
         adata = adata_original
         adata = adata[:, genes_to_keep]
         print("Finished HVG with Pearson Residuals")
-    else:
-        raise ValueError("Unsupported HVG method in combo")
-
-    # Apply normalization method
-    if hvg_norm_combo == 'Pearson Residual + Pearson Residual':
         sc.experimental.pp.normalize_pearson_residuals(adata)
         print("Finished normalization with Pearson Residuals")
     elif hvg_norm_combo == 'Pearson Residual + log_zscore':
+        sc.experimental.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='pearson_residuals')
+        genes_to_keep = adata.var.highly_variable
+        adata = adata_original
+        adata = adata[:, genes_to_keep]
+        print("Finished HVG with Pearson Residuals")
         sc.pp.normalize_total(adata)
         sc.pp.log1p(adata)
         sc.pp.scale(adata, max_value=10)
         print("Finished normalization with log_zscore")
+    elif hvg_norm_combo == 'seurat + log_zscore':
+        sc.pp.normalize_total(adata)
+        sc.pp.log1p(adata)
+        sc.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='seurat')
+        genes_to_keep = adata.var.highly_variable
+        adata = adata_original
+        adata = adata[:, genes_to_keep]
+        print("Finished HVG with seurat")
+        sc.pp.normalize_total(adata)
+        sc.pp.log1p(adata)
+        sc.pp.scale(adata, max_value=10)
+        print("Finished normalization with log_zscore")
+    elif hvg_norm_combo == 'seurat + log':
+        sc.pp.normalize_total(adata)
+        sc.pp.log1p(adata)
+        sc.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='seurat')
+        genes_to_keep = adata.var.highly_variable
+        adata = adata_original
+        adata = adata[:, genes_to_keep]
+        print("Finished HVG with seurat")
+        sc.pp.normalize_total(adata)
+        sc.pp.log1p(adata)
+        print("Finished normalization with log")
     else:
-        raise ValueError("Unsupported normalization method in combo")
+        raise ValueError("Unsupported combo method")
 
     # Save the processed data
     adata.write_h5ad(output_adata_file)
