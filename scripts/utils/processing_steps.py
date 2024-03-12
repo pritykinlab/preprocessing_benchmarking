@@ -90,6 +90,47 @@ def norm(input_adata_file, output_adata_file, norm_method):
 
 
 
+def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
+    print(f"input_adata_file: {input_adata_file}, output_adata_file: {output_adata_file}, combo: {hvg_norm_combo}, num_hvg: {num_hvg}")
+    
+    # Check if the output file already exists
+    if os.path.exists(output_adata_file):
+        print(f"File {output_adata_file} already exists. Skipping HVG and Norm.")
+        return
+
+    # Load the data
+    adata = sc.read_h5ad(input_adata_file)
+    sc.pp.filter_genes(adata, min_cells=3)
+    adata_original = adata.copy()
+
+    # Apply HVG selection with Pearson Residuals
+    if 'Pearson Residual' in hvg_norm_combo:
+        sc.experimental.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='pearson_residuals')
+        genes_to_keep = adata.var.highly_variable
+        adata = adata_original
+        adata = adata[:, genes_to_keep]
+        print("Finished HVG with Pearson Residuals")
+    else:
+        raise ValueError("Unsupported HVG method in combo")
+
+    # Apply normalization method
+    if hvg_norm_combo == 'Pearson Residual + Pearson Residual':
+        sc.experimental.pp.normalize_pearson_residuals(adata)
+        print("Finished normalization with Pearson Residuals")
+    elif hvg_norm_combo == 'Pearson Residual + log_zscore':
+        sc.pp.normalize_total(adata)
+        sc.pp.log1p(adata)
+        sc.pp.scale(adata, max_value=10)
+        print("Finished normalization with log_zscore")
+    else:
+        raise ValueError("Unsupported normalization method in combo")
+
+    # Save the processed data
+    adata.write_h5ad(output_adata_file)
+    print("Output file saved:", output_adata_file)
+
+
+
 def pca(input_adata_file, output_adata_file, max_pcs):
     print(f"input_adata_file: {input_adata_file}")
     print(f"output_adata_file: {output_adata_file}")
