@@ -137,7 +137,7 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
     aggregated_df = pd.concat(all_metrics_dfs, ignore_index=True)
     aggregated_filename = os.path.join(output_dir, "aggregated_results.tsv")
     aggregated_df.to_csv(aggregated_filename, sep="\t", index=False)
-    os.system("rm -r {intermediate_files_output_dir}")
+    os.system(f"rm -r {intermediate_files_output_dir}")
     return aggregated_df
 
 def construct_individual_filename(adata_file, comb_params):
