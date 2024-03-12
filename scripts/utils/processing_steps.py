@@ -100,7 +100,8 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
 
     # Load the data
     adata = sc.read_h5ad(input_adata_file)
-    sc.pp.filter_genes(adata, min_cells=3)
+    sc.pp.filter_cells(adata, min_genes=200)
+    sc.pp.filter_genes(adata, min_cells=adata.shape[0] * 0.0005) # adata.shape[0] gives the number of cells
     adata_original = adata.copy()
 
     # Apply HVG selection with Pearson Residuals
