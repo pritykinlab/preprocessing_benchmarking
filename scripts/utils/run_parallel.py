@@ -29,7 +29,7 @@ def run(row, default_slurm_params):
     test_params= [
         # Specify each step with its parameters
         (processing_steps.hvg_norm, {'hvg_norm_combo': ['Pearson Residual + Pearson Residual', 'Pearson Residual + log_zscore', 'seurat + log_zscore', 'seurat + log'], 'num_hvg': [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]}),
-        (processing_steps.pca, {'max_pcs': [500]}),
+        (processing_steps.pca, {'max_pcs': [100]}),
         (processing_steps.evaluate, {'label_col': ['perturbation'],'num_nn': [20, 40],'num_pcs_list': [25, 50, 100]})
     ]
 
