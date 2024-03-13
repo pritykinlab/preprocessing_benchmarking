@@ -12,7 +12,7 @@ import slurm_submitter
 import itertools
 import time
 
-def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_params, verbose=False, parallel_type="slurm"):
+def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_params, verbose=False, parallel_type="slurm", remove_intermediate=True):
     """  Executes Pipeline on scRNA-seq data based on provided steps and parameters.
     input_adata_file:
         Adata file must have a raw input
@@ -132,12 +132,12 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
             if verbose:
                 assert False, f"File {evaluate_file} does not exist!"
 
-
     # Aggregate all individual .tsv files into "aggregated_results.tsv"
     aggregated_df = pd.concat(all_metrics_dfs, ignore_index=True)
     aggregated_filename = os.path.join(output_dir, "aggregated_results.tsv")
     aggregated_df.to_csv(aggregated_filename, sep="\t", index=False)
-    os.system(f"rm -r {intermediate_files_output_dir}")
+    if remove_intermediate:
+        os.system(f"rm -r {intermediate_files_output_dir}")
     return aggregated_df
 
 def construct_individual_filename(adata_file, comb_params):
