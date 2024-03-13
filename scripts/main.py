@@ -54,8 +54,8 @@ for idx, row in metadata_df.iterrows():
     ]
 
     default_slurm_params = {
-        'cpus-per-task': 1,
-        'mem-per-cpu': '32G',
+        'cpus-per-task': 8,
+        'mem-per-cpu': '64G',
     }
     print(default_slurm_params)
     
