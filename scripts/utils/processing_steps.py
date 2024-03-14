@@ -6,6 +6,19 @@ import scipy
 from scipy.sparse import csr_matrix
 from itertools import product
 from sklearn.neighbors import NearestNeighbors
+import time
+
+def write_output(adata, output_adata_file):
+    # had to do this because can't write to directory with two different files?
+    while True:
+        try:
+            print(f"Trying to write {output_adata_file}")
+            adata.write_h5ad(output_adata_file)
+            break
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            time.sleep(5)
+        
 
 
 def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
@@ -56,8 +69,8 @@ def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
         adata = adata_original
         
         adata = adata[:, genes_to_keep]
-        adata.write_h5ad(output_adata_file)
         print("Finished hvg'")
+    write_output(adata, output_adata_file)
 
 
 def norm(input_adata_file, output_adata_file, norm_method):
@@ -85,7 +98,7 @@ def norm(input_adata_file, output_adata_file, norm_method):
     else:
         raise ValueError("Method not found")
     
-    adata.write_h5ad(output_adata_file)
+    write_output(adata, output_adata_file)
     print("Finished norm")
 
 
@@ -150,7 +163,7 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
         raise ValueError("Unsupported combo method")
 
     # Save the processed data
-    adata.write_h5ad(output_adata_file)
+    write_output(adata, output_adata_file)
     print("Output file saved:", output_adata_file)
 
 
