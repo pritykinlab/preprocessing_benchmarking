@@ -148,7 +148,7 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
         sc.pp.log1p(adata)
         sc.pp.scale(adata, max_value=10)
         print("Finished normalization with norm_log_zscore")
-    elif hvg_norm_combo == 'seurat + log':
+    elif hvg_norm_combo == 'seurat + norm_log':
         sc.pp.normalize_total(adata)
         sc.pp.log1p(adata)
         sc.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='seurat')
