@@ -74,7 +74,7 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
         if verbose:
             print(f"Running slurm submitter!")
         slurm_submitter.run(func, arguments_l, slurm_params=default_slurm_params, run_type=parallel_type)
-        time.sleep(10) # for some reasons files take a while to write back
+        time.sleep(30) # for some reasons files take a while to write back
 
     ########################################################
     ############# Evaluate Section of Pipeline #############
@@ -118,7 +118,7 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
     func, _ = pipeline_params[-1]
     slurm_submitter.run(func, arguments_l, slurm_params=default_slurm_params, run_type=parallel_type)
 
-    time.sleep(10) # for some reasons files take a while to write back
+    time.sleep(30) # for some reasons files take a while to write back
 
     # Handling the results
     for evaluate_file in all_evaluate_files:

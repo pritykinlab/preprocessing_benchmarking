@@ -6,6 +6,19 @@ import scipy
 from scipy.sparse import csr_matrix
 from itertools import product
 from sklearn.neighbors import NearestNeighbors
+import time
+
+def write_output(adata, output_adata_file):
+    # had to do this because can't write to directory with two different files?
+    while True:
+        try:
+            print(f"Trying to write {output_adata_file}")
+            adata.write_h5ad(output_adata_file)
+            break
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            time.sleep(5)
+        
 
 
 def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
@@ -56,8 +69,8 @@ def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
         adata = adata_original
         
         adata = adata[:, genes_to_keep]
-        adata.write_h5ad(output_adata_file)
         print("Finished hvg'")
+    write_output(adata, output_adata_file)
 
 
 def norm(input_adata_file, output_adata_file, norm_method):
@@ -74,7 +87,7 @@ def norm(input_adata_file, output_adata_file, norm_method):
         
     adata = sc.read_h5ad(input_adata_file)
     # Apply normalization
-    if norm_method == 'log_zscore':
+    if norm_method == 'norm_log_zscore':
         sc.pp.normalize_total(adata)
         sc.pp.log1p(adata)
         sc.pp.scale(adata, max_value=10)
@@ -85,7 +98,7 @@ def norm(input_adata_file, output_adata_file, norm_method):
     else:
         raise ValueError("Method not found")
     
-    adata.write_h5ad(output_adata_file)
+    write_output(adata, output_adata_file)
     print("Finished norm")
 
 
@@ -113,7 +126,7 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
         print("Finished HVG with Pearson Residuals")
         sc.experimental.pp.normalize_pearson_residuals(adata)
         print("Finished normalization with Pearson Residuals")
-    elif hvg_norm_combo == 'Pearson Residual + log_zscore':
+    elif hvg_norm_combo == 'Pearson Residual + norm_log_zscore':
         sc.experimental.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='pearson_residuals')
         genes_to_keep = adata.var.highly_variable
         adata = adata_original
@@ -122,8 +135,8 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
         sc.pp.normalize_total(adata)
         sc.pp.log1p(adata)
         sc.pp.scale(adata, max_value=10)
-        print("Finished normalization with log_zscore")
-    elif hvg_norm_combo == 'seurat + log_zscore':
+        print("Finished normalization with norm_log_zscore")
+    elif hvg_norm_combo == 'seurat + norm_log_zscore':
         sc.pp.normalize_total(adata)
         sc.pp.log1p(adata)
         sc.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='seurat')
@@ -134,8 +147,8 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
         sc.pp.normalize_total(adata)
         sc.pp.log1p(adata)
         sc.pp.scale(adata, max_value=10)
-        print("Finished normalization with log_zscore")
-    elif hvg_norm_combo == 'seurat + log':
+        print("Finished normalization with norm_log_zscore")
+    elif hvg_norm_combo == 'seurat + norm_log':
         sc.pp.normalize_total(adata)
         sc.pp.log1p(adata)
         sc.pp.highly_variable_genes(adata, n_top_genes=num_hvg, flavor='seurat')
@@ -150,7 +163,7 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
         raise ValueError("Unsupported combo method")
 
     # Save the processed data
-    adata.write_h5ad(output_adata_file)
+    write_output(adata, output_adata_file)
     print("Output file saved:", output_adata_file)
 
 
@@ -168,47 +181,44 @@ def pca(input_adata_file, output_adata_file, max_pcs):
     adata.write_h5ad(output_adata_file)
     print("Finished pca")
 
-def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs_list):
+def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
     print(f"input_adata_file: {input_adata_file}")
     print(f"output_file: {output_file}")
     print(f"label_col: {label_col}")
     print(f"num_nn: {num_nn}")
-    print(f"num_pcs_list: {num_pcs_list}")
+    print(f"num_pcs: {num_pcs}")
     # Rest of your function code goes here
 
     adata = sc.read_h5ad(input_adata_file)
 
-    if not isinstance(num_pcs_list, list):
-        num_pcs_list = [num_pcs_list]  # Ensure it's a list
 
     results_dict_list = []
-    for num_pcs in num_pcs_list:
-        max_num_pcs = adata.obsm['X_pca'].shape[1]
-        if num_pcs > max_num_pcs:
-            raise ValueError("Not enough PCs to subset")
-        X_pca = adata.obsm['X_pca'][:, :num_pcs]
-        nbrs = NearestNeighbors(n_neighbors=num_nn, algorithm='brute', n_jobs=-1).fit(X_pca)
-        _, knn_indices = nbrs.kneighbors(X_pca)
+    max_num_pcs = adata.obsm['X_pca'].shape[1]
+    if num_pcs > max_num_pcs:
+        raise ValueError("Not enough PCs to subset")
+    X_pca = adata.obsm['X_pca'][:, :num_pcs]
+    nbrs = NearestNeighbors(n_neighbors=num_nn, algorithm='brute', n_jobs=-1).fit(X_pca)
+    _, knn_indices = nbrs.kneighbors(X_pca)
 
+    for label_value in adata.obs[label_col].unique():
+        cells_with_label_idx = np.where(adata.obs[label_col] == label_value)[0]
 
-        for label_value in adata.obs[label_col].unique():
-            cells_with_label_idx = np.where(adata.obs[label_col] == label_value)[0]
+        for i in cells_with_label_idx:
+            neighbors = knn_indices[i]
+            neighbors_count = np.sum(adata.obs[label_col][neighbors] == label_value)
 
-            for i in cells_with_label_idx:
-                neighbors = knn_indices[i]
-                neighbors_count = np.sum(adata.obs[label_col][neighbors] == label_value)
-
-                result_dict = {
-                    'num_PCs': num_pcs,
-                    'label': label_value,
-                    'cell_index': i,
-                    'neighbors_count': neighbors_count,
-                }
-                results_dict_list.append(result_dict)
+            result_dict = {
+                'num_PCs': num_pcs,
+                'label': label_value,
+                'cell_index': i,
+                'neighbors_count': neighbors_count,
+            }
+            results_dict_list.append(result_dict)
 
     results_df = pd.DataFrame(results_dict_list)
-    results_df = results_df.groupby(['num_PCs', 'label']).mean().reset_index().drop(columns=['cell_index'])
+    results_df = results_df.groupby(['label']).mean().reset_index().drop(columns=['cell_index'])
     results_df.to_csv(output_file, sep="\t", index=False)
+    print(results_df)
 
 
 
