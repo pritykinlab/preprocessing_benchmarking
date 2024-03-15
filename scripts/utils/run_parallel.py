@@ -41,5 +41,6 @@ def run(row, default_slurm_params):
                           default_slurm_params=default_slurm_params,
                           pipeline_params=test_params,
                           verbose=True,
+                          remove_intermediate=True,
                           parallel_type='slurm')
 
