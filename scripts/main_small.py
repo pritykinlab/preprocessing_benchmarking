@@ -11,7 +11,7 @@ from utils import processing_steps
 
 os.environ["OPENBLAS_NUM_THREADS"] = "64"
 
-output_base_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/test"
+output_base_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/test1"
 input_datasets_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/datasets/harmonized_perturb_datasets"
 
 # Function to get the size of the dataset
