@@ -25,3 +25,8 @@ Different k=20, 40
 - main.py
 
 - pipeline.py (fixed)
+
+
+
+# Long Term To Do:
+- subsets of the data (in rare subpopulations, I suspect that more HVG better because, a gene might not be HVG unless if you have enough cells of the small subpopulation)
