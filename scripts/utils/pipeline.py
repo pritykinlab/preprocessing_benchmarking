@@ -3,20 +3,24 @@ import scanpy as sc
 import pandas as pd
 import numpy as np
 import scipy
-from scipy.sparse import csr_matrix
 from itertools import product
-from sklearn.neighbors import NearestNeighbors
 import sys
 sys.path.append("/Genomics/pritykinlab/dillon/software/slurm_submitter")
 import slurm_submitter
 import itertools
 import time
+from scipy.sparse import csr_matrix
+
+
+
+import itertools
+import os
+
 
 def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_params, verbose=False, parallel_type="slurm", remove_intermediate=True):
     """  Executes Pipeline on scRNA-seq data based on provided steps and parameters.
     input_adata_file:
         Adata file must have a raw input
-    
     """
 
     aggregated_filename = os.path.join(output_dir, "aggregated_results.tsv")
@@ -35,98 +39,127 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
     if verbose:
         print(f"Cleaned input file Completed")
         print(f"Intermediate files will be saved in {intermediate_files_output_dir}")
+
+    # Path for intermediate files
+    intermediate_dir = os.path.join(output_dir, "intermediate_files")
     
-    ##################################################
-    ############# First Step of Pipeline #############
-    ##################################################
+    # Ensure the intermediate files directory exists
+    if not os.path.exists(intermediate_dir):
+        os.makedirs(intermediate_dir)
 
-    all_output_adata_files_in_prev_step = [cleaned_input_adata_file]
-    for i, (func, params) in enumerate(pipeline_params[:-1]):  # Exclude last step for separate processing
-        print("###########################################################")
-        print(f"########## Running step {i+1}/{len(pipeline_params)-1} ###############")
-        print("###########################################################")
+    # Initialize a list to store previous combinations
+    prev_combinations = [()]
 
-        # If file has already been written don't need to write it again assume that the result is correct
-        combinations_not_complete = []
-        all_combinations = itertools.product(all_output_adata_files_in_prev_step, generate_combinations(params))
-        all_output_adata_files_in_prev_step = []
-        for input_adata_file, comb_params in all_combinations:
-            base_file_name = os.path.basename(input_adata_file).replace('.h5ad', '')
-            output_file_name = f"{base_file_name}__" + "__".join([f"{key}%{value}" for key, value in comb_params.items()]) + ".h5ad"
-            output_adata_file = os.path.join(intermediate_files_output_dir, output_file_name)
+    # if mapping file is already done then we don't need to get the mapping files
 
-            if not os.path.exists(output_adata_file):
-                combinations_not_complete.append([input_adata_file, comb_params])
-            all_output_adata_files_in_prev_step.append(output_adata_file)
+    mapping_files_completed = True
+    for step_num in range(len(pipeline_params)):
+        mapping_filename = os.path.join(intermediate_dir, f"{step_num + 1}_mapping.txt")
+        if not os.path.exists(mapping_filename):
+            mapping_files_completed = False
+            break
+    
+    if not mapping_files_completed:
+        print("Creating Mapping Files")
+        # Process each step
+        for step_num, (step, params) in enumerate(pipeline_params):
+            # Generate all combinations of parameters for this step
+            step_combinations = list(itertools.product(prev_combinations, *params.values()))
+            
+            # Flatten and combine with previous combinations
+            combined_combinations = []
+            for prev_combo, *current_combo in step_combinations:
+                combined_combinations.append(prev_combo + tuple(current_combo))
 
-        if verbose:
-            print(f"Total_combinations: {len(all_output_adata_files_in_prev_step)}")
-            print(f"Combinations not complete: {combinations_not_complete}")
+            # Update prev_combinations for next iteration
+            prev_combinations = combined_combinations
 
-        # If there are combinations not complete, submit them to slurm
+            # Determine the file extension for the current step
+            file_extension = ".tsv" if step_num == len(pipeline_params) - 1 else ".h5ad"
+
+            # Create a mapping file for this step
+            mapping_filename = os.path.join(intermediate_dir, f"{step_num + 1}_mapping.txt")
+            with open(mapping_filename, 'w') as file:
+                # Determine all parameter names up to this step
+                param_names = [name for _, step_params in pipeline_params[:step_num+1] for name in step_params]
+                file.write("file_name\t" + "\t".join(param_names) + "\n")  # Header
+
+                # Write each combination of parameters and the associated filename
+                for combo_num, combo in enumerate(combined_combinations, start=1):
+                    file_name = f"{step_num + 1}_{combo_num}{file_extension}"
+                    param_values = "\t".join(map(str, combo))
+                    file.write(f"{file_name}\t{param_values}\n")
+    else:
+        print("Mapping Files already created")
+    
+
+    print("#####################################################")
+    print("#################### On Execution #######################")
+    print("#####################################################")
+
+    # Execution part using the mapping files
+    for step_num in range(len(pipeline_params)):
+        print("#############################################################")
+        print(f"#################### stemp_num {step_num} #######################")
+        print("##############################################################")
+
+        step_func, current_params = pipeline_params[step_num]
+        mapping_filename = os.path.join(intermediate_dir, f"{step_num + 1}_mapping.txt")
+
+        df = pd.read_csv(mapping_filename, sep='\t')
+        if step_num > 0:
+            previous_df = pd.read_csv(os.path.join(intermediate_dir, f"{step_num}_mapping.txt"), sep='\t')
+        else:
+            previous_df = None
+
         arguments_l = []
-        for input_adata_file, comb_params in combinations_not_complete:
-            base_file_name = os.path.basename(input_adata_file).replace('.h5ad', '')
-            output_file_name = f"{base_file_name}__" + "__".join([f"{key}%{value}" for key, value in comb_params.items()]) + ".h5ad"
-            output_adata_file = os.path.join(intermediate_files_output_dir, output_file_name)
-            arguments_l.append({"input_adata_file": input_adata_file, "output_adata_file": output_adata_file, **comb_params})
+        for _, params in df.iterrows():
+            output_adata_file = os.path.join(intermediate_dir, params['file_name'])
 
+            # Determine the correct input file
+            if step_num == 0:
+                input_adata_file = cleaned_input_adata_file  # Use the initial input file for the first step
+            else:
+                # Extract previous parameters (all but those in the current step)
+                previous_params_keys = df.columns.difference(current_params.keys()).tolist()
+                previous_params_keys.remove('file_name')
+                previous_params = params[previous_params_keys]
+                matching_row = previous_df[(previous_df[previous_params_keys] == previous_params.values).all(axis=1)]
+                input_adata_file = os.path.join(intermediate_dir, matching_row.iloc[0]['file_name'])
+
+            # Extract only the parameters relevant for the current combination
+            comb_params = params[current_params.keys()].to_dict()
+
+            # Append the argument dictionary for this combination
+            arguments_l.append({
+                "input_adata_file": input_adata_file,
+                "output_file": output_adata_file,
+                **comb_params
+            })
+
+
+        # Run the step if there are combinations to process
         if verbose:
-            print(f"Running slurm submitter!")
-        slurm_submitter.run(func, arguments_l, slurm_params=default_slurm_params, run_type=parallel_type)
-        time.sleep(30) # for some reasons files take a while to write back
-
-    ########################################################
-    ############# Evaluate Section of Pipeline #############
-    ########################################################
-    print("###########################################################")
-    print(f"########## Running Evaluation ############################")
-    print("###########################################################")
-    # Process the last step separately and save individual .tsv files
-    all_metrics_dfs = []
-    combinations_not_complete = []
-    all_combinations = [(adata_file, comb_params) for adata_file in all_output_adata_files_in_prev_step for comb_params in generate_combinations(pipeline_params[-1][1])]
-    print("all_combinations is", all_combinations)
-    all_evaluate_files = []
-
-    # Check which combinations need to be completed
-    for adata_file, comb_params in all_combinations:
-        # base_file_name = os.path.basename(adata_file).replace('.h5ad', '')
-        # individual_tsv_filename = f"{base_file_name}__" + "__".join([f"{key}%{value}" for key, value in comb_params.items()]) + ".tsv"
-        individual_tsv_filename = construct_individual_filename(adata_file, comb_params) + ".tsv"
-        individual_tsv_path = os.path.join(intermediate_files_output_dir, individual_tsv_filename)
-        if not os.path.exists(individual_tsv_path):
-            combinations_not_complete.append((adata_file, comb_params))
-        all_evaluate_files.append(individual_tsv_path)
-
-    print("combinations_not_complete is", combinations_not_complete)
-    print("all_evaluate_files is", all_evaluate_files)
-    
-    arguments_l = []
-    for adata_file, comb_params in combinations_not_complete:
-        # base_file_name = os.path.basename(input_adata_file).replace('.h5ad', '')
-        # individual_tsv_filename = f"{base_file_name}__" + "__".join([f"{key}%{value}" for key, value in comb_params.items()]) + ".tsv"
-        individual_tsv_filename = construct_individual_filename(adata_file, comb_params) + ".tsv"
-        individual_tsv_path = os.path.join(intermediate_files_output_dir, individual_tsv_filename)
-        arguments_l.append({"input_adata_file": adata_file, "output_file": individual_tsv_path, **comb_params})
-
-    print("arguments_l is", arguments_l)
-    
-    if verbose:
-        print(f"Running slurm submitter for the evaluate step!")
-
-    func, _ = pipeline_params[-1]
-    slurm_submitter.run(func, arguments_l, slurm_params=default_slurm_params, run_type=parallel_type)
-
-    time.sleep(30) # for some reasons files take a while to write back
+            print(f"Running step {step_num + 1} with {len(arguments_l)} combinations")
+        if arguments_l:
+            slurm_submitter.run(step_func, arguments_l, slurm_params=default_slurm_params, run_type=parallel_type)
 
     # Handling the results
-    for evaluate_file in all_evaluate_files:
+    all_metrics_dfs = []
+    last_mapping_filename = os.path.join(intermediate_dir, f"{len(pipeline_params)}_mapping.txt")
+
+    # Read the last mapping file as a DataFrame
+    last_mapping_df = pd.read_csv(last_mapping_filename, sep='\t')
+    for _, row in last_mapping_df.iterrows():
+        evaluate_file = os.path.join(intermediate_dir, row['file_name'])
         if os.path.exists(evaluate_file):
             metric_df = pd.read_csv(evaluate_file, sep="\t")
-            params_from_file = extract_params_from_filename(evaluate_file)
+            
+            # Extract all the parameters from that row, excluding 'file_name'
+            params_from_file = row.drop('file_name').to_dict()
             for key, value in params_from_file.items():
                 metric_df[key] = value
+            
             all_metrics_dfs.append(metric_df)
         else:
             if verbose:
@@ -136,42 +169,11 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
     aggregated_df = pd.concat(all_metrics_dfs, ignore_index=True)
     aggregated_filename = os.path.join(output_dir, "aggregated_results.tsv")
     aggregated_df.to_csv(aggregated_filename, sep="\t", index=False)
+
     if remove_intermediate:
         os.system(f"rm -r {intermediate_files_output_dir}")
     return aggregated_df
 
-def construct_individual_filename(adata_file, comb_params):
-    """
-    Construct a unique filename for the individual .tsv files based on the input parameters.
-    """
-    base_name = os.path.basename(adata_file).replace('.h5ad', '')
-    param_str = "__".join([f"{key}%{value}" for key, value in comb_params.items()])
-    return f"{base_name}__{param_str}"
-
-
-def generate_combinations(params):
-    """Generate all combinations of parameters."""
-    keys, values = zip(*params.items())
-    return [dict(zip(keys, v)) for v in product(*values)]
-
-def extract_params_from_filename(filename):
-    """Extract parameters and their values from a filename."""
-    # Initialize an empty dictionary to store extracted parameters
-    params = {}
-
-    # Remove the file extension and any directory paths
-    base_filename = os.path.splitext(os.path.basename(filename))[0]
-
-    # Split the base filename into key-value pairs on the double underscore '__'
-    kv_pairs = base_filename.split('__')
-
-    # For each key-value pair, split on the percent '%' to separate the key from the value
-    for kv in kv_pairs:
-        if '%' in kv:
-            key, value = kv.split('%', 1)  # Only split on the first percent
-            params[key] = value
-
-    return params
 
 def prepare_cleaned_input(input_adata_file, output_dir):
     """Prepare 'cleaned_input.h5ad' from the input AnnData object."""
@@ -185,6 +187,9 @@ def prepare_cleaned_input(input_adata_file, output_dir):
         adata.write_h5ad(output_adata_file)
         print("Finished preparing 'cleaned_input.h5ad'")
     return output_adata_file
+
+
+
 
 
 

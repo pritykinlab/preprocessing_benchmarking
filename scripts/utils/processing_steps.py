@@ -8,12 +8,12 @@ from itertools import product
 from sklearn.neighbors import NearestNeighbors
 import time
 
-def write_output(adata, output_adata_file):
+def write_output(adata, output_file):
     # had to do this because can't write to directory with two different files?
     while True:
         try:
-            print(f"Trying to write {output_adata_file}")
-            adata.write_h5ad(output_adata_file)
+            print(f"Trying to write {output_file}")
+            adata.write_h5ad(output_file)
             break
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -21,12 +21,12 @@ def write_output(adata, output_adata_file):
         
 
 
-def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
-    print(f"input_adata_file: {input_adata_file}, output_adata_file: {output_adata_file}, hvg_method: {hvg_method}, num_hvg: {num_hvg}")
+def hvg(input_adata_file, output_file, hvg_method, num_hvg):
+    print(f"input_adata_file: {input_adata_file}, output_file: {output_file}, hvg_method: {hvg_method}, num_hvg: {num_hvg}")
     
     # Check if the output file already exists
-    if os.path.exists(output_adata_file):
-        print(f"File {output_adata_file} already exists. Skipping HVG.")
+    if os.path.exists(output_file):
+        print(f"File {output_file} already exists. Skipping HVG.")
         return
         
     adata = sc.read_h5ad(input_adata_file)
@@ -70,19 +70,19 @@ def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
         
         adata = adata[:, genes_to_keep]
         print("Finished hvg'")
-    write_output(adata, output_adata_file)
+    write_output(adata, output_file)
 
 
-def norm(input_adata_file, output_adata_file, norm_method):
+def norm(input_adata_file, output_file, norm_method):
     print(f"input_adata_file: {input_adata_file}")
-    print(f"output_adata_file: {output_adata_file}")
+    print(f"output_file: {output_file}")
     print(f"norm_method: {norm_method}")
 
     # Rest of your function code goes here
 
     # Check if the output file already exists
-    if os.path.exists(output_adata_file):
-        print(f"File {output_adata_file} already exists. Skipping normalization.")
+    if os.path.exists(output_file):
+        print(f"File {output_file} already exists. Skipping normalization.")
         return
         
     adata = sc.read_h5ad(input_adata_file)
@@ -98,17 +98,17 @@ def norm(input_adata_file, output_adata_file, norm_method):
     else:
         raise ValueError("Method not found")
     
-    write_output(adata, output_adata_file)
+    write_output(adata, output_file)
     print("Finished norm")
 
 
 
-def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
-    print(f"input_adata_file: {input_adata_file}, output_adata_file: {output_adata_file}, combo: {hvg_norm_combo}, num_hvg: {num_hvg}")
+def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
+    print(f"input_adata_file: {input_adata_file}, output_file: {output_file}, combo: {hvg_norm_combo}, num_hvg: {num_hvg}")
     
     # Check if the output file already exists
-    if os.path.exists(output_adata_file):
-        print(f"File {output_adata_file} already exists. Skipping HVG and Norm.")
+    if os.path.exists(output_file):
+        print(f"File {output_file} already exists. Skipping HVG and Norm.")
         return
 
     # Load the data
@@ -163,22 +163,22 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
         raise ValueError("Unsupported combo method")
 
     # Save the processed data
-    write_output(adata, output_adata_file)
-    print("Output file saved:", output_adata_file)
+    write_output(adata, output_file)
+    print("Output file saved:", output_file)
 
 
 
-def pca(input_adata_file, output_adata_file, max_pcs):
+def pca(input_adata_file, output_file, max_pcs):
     print(f"input_adata_file: {input_adata_file}")
-    print(f"output_adata_file: {output_adata_file}")
+    print(f"output_file: {output_file}")
     print(f"max_pcs: {max_pcs}")
     # Check if the output file already exists
-    if os.path.exists(output_adata_file):
-        print(f"File {output_adata_file} already exists. Skipping PCA.")
+    if os.path.exists(output_file):
+        print(f"File {output_file} already exists. Skipping PCA.")
         return
     adata = sc.read_h5ad(input_adata_file)
     sc.tl.pca(adata, n_comps=int(max_pcs))
-    adata.write_h5ad(output_adata_file)
+    adata.write_h5ad(output_file)
     print("Finished pca")
 
 def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
