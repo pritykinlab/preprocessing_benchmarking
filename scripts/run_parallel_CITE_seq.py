@@ -26,6 +26,6 @@ arguments_list = [{'dataset':dataset, 'default_slurm_params':slurm_params}
 
 print(arguments_list)
 
-results = slurm_submitter.run(run_parallel.run_10x_CITE_seq, arguments_list, slurm_params=slurm_params, run_type='regular')
+results = slurm_submitter.run(run_parallel.run_10x_CITE_seq, arguments_list, slurm_params=slurm_params, run_type='regular', max_num_jobs=5)
 
 

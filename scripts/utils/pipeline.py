@@ -22,7 +22,14 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
     input_adata_file:
         Adata file must have a raw input
     """
+    for pipeline_step, params in pipeline_params:
+        assert callable(pipeline_step), f"Step {pipeline_step} is not callable"
+        assert isinstance(params, dict), f"Params {params} is not a dictionary"
+        for key, value in params.items():
+            if not isinstance(value, list):
+                params[key] = [value]
 
+    original_input_adata_file = input_adata_file
     aggregated_filename = os.path.join(output_dir, "aggregated_results.tsv")
     if os.path.exists(aggregated_filename):
         print("Already Created aggregated data, so skipping run")
@@ -35,10 +42,7 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
     intermediate_files_output_dir = os.path.join(output_dir, "intermediate_files")
     if not os.path.exists(intermediate_files_output_dir):
         os.makedirs(intermediate_files_output_dir)
-    cleaned_input_adata_file = prepare_cleaned_input(input_adata_file, intermediate_files_output_dir)
-    if verbose:
-        print(f"Cleaned input file Completed")
-        print(f"Intermediate files will be saved in {intermediate_files_output_dir}")
+
 
     # Path for intermediate files
     intermediate_dir = os.path.join(output_dir, "intermediate_files")
@@ -115,10 +119,13 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
         arguments_l = []
         for _, params in df.iterrows():
             output_adata_file = os.path.join(intermediate_dir, params['file_name'])
+            if os.path.exists(output_adata_file):
+                print(f"File {output_adata_file} already exists, skipping")
+                continue
 
             # Determine the correct input file
             if step_num == 0:
-                input_adata_file = cleaned_input_adata_file  # Use the initial input file for the first step
+                input_adata_file = original_input_adata_file  # Use the initial input file for the first step
             else:
                 # Extract previous parameters (all but those in the current step)
                 previous_params_keys = df.columns.difference(current_params.keys()).tolist()
@@ -130,7 +137,6 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
             # Extract only the parameters relevant for the current combination
             comb_params = params[current_params.keys()].to_dict()
 
-            # Append the argument dictionary for this combination
             arguments_l.append({
                 "input_adata_file": input_adata_file,
                 "output_file": output_adata_file,
@@ -143,6 +149,7 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
             print(f"Running step {step_num + 1} with {len(arguments_l)} combinations")
         if arguments_l:
             slurm_submitter.run(step_func, arguments_l, slurm_params=default_slurm_params, run_type=parallel_type)
+        time.sleep(30)
 
     # Handling the results
     all_metrics_dfs = []
@@ -173,21 +180,6 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
     if remove_intermediate:
         os.system(f"rm -r {intermediate_files_output_dir}")
     return aggregated_df
-
-
-def prepare_cleaned_input(input_adata_file, output_dir):
-    """Prepare 'cleaned_input.h5ad' from the input AnnData object."""
-    output_adata_file = os.path.join(output_dir, "cleaned_input.h5ad")
-    if not os.path.exists(output_adata_file):
-        adata = sc.read_h5ad(input_adata_file)
-        if not isinstance(adata.X, scipy.sparse.spmatrix):
-            adata.X = csr_matrix(adata.X)
-        adata.layers['raw'] = adata.X
-        sc.pp.filter_cells(adata, min_genes=100)
-        adata.write_h5ad(output_adata_file)
-        print("Finished preparing 'cleaned_input.h5ad'")
-    return output_adata_file
-
 
 
 
