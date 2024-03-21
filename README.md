@@ -1,7 +1,18 @@
+# Dillon To Do:
+- normalize the metric
+- many dataset from large dataset
+
+# Yujie To Do:
+- HVGs = [250, 500, 1000, 2000, 4000, 8000, max_genes]
+- aggregate the results by doing zscore then plotting all of the results on one dataset (num_PCs x num_k x num_norm plots)
+
+# TO DO 1
+- identify the control cells
+- where are the replicates are there any
+- remove controls from the metric
+
 # TO DO
 - add sctransform
-- add CITE-seq
-- need to make file mapping system in order to use files as arguements (can't use argument values in filename of intermediate files)
 - highly variable genes need to go to the max value (edit the metadata to say how many genes are at max then pass that as the argument)
 
 # Long Term To Do:
