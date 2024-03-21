@@ -8,12 +8,12 @@ from itertools import product
 from sklearn.neighbors import NearestNeighbors
 import time
 
-def write_output(adata, output_adata_file):
+def write_output(adata, output_file):
     # had to do this because can't write to directory with two different files?
     while True:
         try:
-            print(f"Trying to write {output_adata_file}")
-            adata.write_h5ad(output_adata_file)
+            print(f"Trying to write {output_file}")
+            adata.write_h5ad(output_file)
             break
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -21,12 +21,12 @@ def write_output(adata, output_adata_file):
         
 
 
-def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
-    print(f"input_adata_file: {input_adata_file}, output_adata_file: {output_adata_file}, hvg_method: {hvg_method}, num_hvg: {num_hvg}")
+def hvg(input_adata_file, output_file, hvg_method, num_hvg):
+    print(f"input_adata_file: {input_adata_file}, output_file: {output_file}, hvg_method: {hvg_method}, num_hvg: {num_hvg}")
     
     # Check if the output file already exists
-    if os.path.exists(output_adata_file):
-        print(f"File {output_adata_file} already exists. Skipping HVG.")
+    if os.path.exists(output_file):
+        print(f"File {output_file} already exists. Skipping HVG.")
         return
         
     adata = sc.read_h5ad(input_adata_file)
@@ -70,19 +70,19 @@ def hvg(input_adata_file, output_adata_file, hvg_method, num_hvg):
         
         adata = adata[:, genes_to_keep]
         print("Finished hvg'")
-    write_output(adata, output_adata_file)
+    write_output(adata, output_file)
 
 
-def norm(input_adata_file, output_adata_file, norm_method):
+def norm(input_adata_file, output_file, norm_method):
     print(f"input_adata_file: {input_adata_file}")
-    print(f"output_adata_file: {output_adata_file}")
+    print(f"output_file: {output_file}")
     print(f"norm_method: {norm_method}")
 
     # Rest of your function code goes here
 
     # Check if the output file already exists
-    if os.path.exists(output_adata_file):
-        print(f"File {output_adata_file} already exists. Skipping normalization.")
+    if os.path.exists(output_file):
+        print(f"File {output_file} already exists. Skipping normalization.")
         return
         
     adata = sc.read_h5ad(input_adata_file)
@@ -98,17 +98,17 @@ def norm(input_adata_file, output_adata_file, norm_method):
     else:
         raise ValueError("Method not found")
     
-    write_output(adata, output_adata_file)
+    write_output(adata, output_file)
     print("Finished norm")
 
 
 
-def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
-    print(f"input_adata_file: {input_adata_file}, output_adata_file: {output_adata_file}, combo: {hvg_norm_combo}, num_hvg: {num_hvg}")
+def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
+    print(f"input_adata_file: {input_adata_file}, output_file: {output_file}, combo: {hvg_norm_combo}, num_hvg: {num_hvg}")
     
     # Check if the output file already exists
-    if os.path.exists(output_adata_file):
-        print(f"File {output_adata_file} already exists. Skipping HVG and Norm.")
+    if os.path.exists(output_file):
+        print(f"File {output_file} already exists. Skipping HVG and Norm.")
         return
 
     # Load the data
@@ -163,22 +163,22 @@ def hvg_norm(input_adata_file, output_adata_file, hvg_norm_combo, num_hvg):
         raise ValueError("Unsupported combo method")
 
     # Save the processed data
-    write_output(adata, output_adata_file)
-    print("Output file saved:", output_adata_file)
+    write_output(adata, output_file)
+    print("Output file saved:", output_file)
 
 
 
-def pca(input_adata_file, output_adata_file, max_pcs):
+def pca(input_adata_file, output_file, max_pcs):
     print(f"input_adata_file: {input_adata_file}")
-    print(f"output_adata_file: {output_adata_file}")
+    print(f"output_file: {output_file}")
     print(f"max_pcs: {max_pcs}")
     # Check if the output file already exists
-    if os.path.exists(output_adata_file):
-        print(f"File {output_adata_file} already exists. Skipping PCA.")
+    if os.path.exists(output_file):
+        print(f"File {output_file} already exists. Skipping PCA.")
         return
     adata = sc.read_h5ad(input_adata_file)
     sc.tl.pca(adata, n_comps=int(max_pcs))
-    adata.write_h5ad(output_adata_file)
+    adata.write_h5ad(output_file)
     print("Finished pca")
 
 def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
@@ -222,7 +222,91 @@ def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
 
 
 
+def evaluate_CITE_seq(input_adata_file, output_file, num_nn, num_pcs, protein_h5ad_file):
+    print(f"input_adata_file: {input_adata_file}")
+    print(f"output_file: {output_file}")
+    print(f"num_nn: {num_nn}")
+    print(f"num_pcs: {num_pcs}")
+    print(f"protein_h5ad_file: {protein_h5ad_file}")
+    # Rest of your function code goes here
+
+    adata = sc.read_h5ad(input_adata_file)
+    protein_adata = sc.read_h5ad(protein_h5ad_file)
+    clr_normalize(protein_adata)
+    sc.pp.scale(protein_adata, max_value=10)
+
+    results_dict_list = []
+    max_num_pcs = adata.obsm['X_pca'].shape[1]
+    if num_pcs > max_num_pcs:
+        raise ValueError("Not enough PCs to subset")
+    X_pca = adata.obsm['X_pca'][:, :num_pcs]
+    nbrs = NearestNeighbors(n_neighbors=num_nn, algorithm='brute', n_jobs=-1).fit(X_pca)
+    _, knn_indices = nbrs.kneighbors(X_pca)
+
+    for label_value in adata.obs[label_col].unique():
+        cells_with_label_idx = np.where(adata.obs[label_col] == label_value)[0]
+
+        for i in cells_with_label_idx:
+            neighbors = knn_indices[i]
+            neighbors_count = np.sum(adata.obs[label_col][neighbors] == label_value)
+
+            result_dict = {
+                'num_PCs': num_pcs,
+                'label': label_value,
+                'cell_index': i,
+                'neighbors_count': neighbors_count,
+            }
+            results_dict_list.append(result_dict)
+
+    results_df = pd.DataFrame(results_dict_list)
+    results_df = results_df.groupby(['label']).mean().reset_index().drop(columns=['cell_index'])
+    results_df.to_csv(output_file, sep="\t", index=False)
+    print(results_df)
 
 
 
+from typing import Optional, Iterable, Tuple, Union
+from anndata import AnnData
+from scipy.sparse import issparse, csc_matrix, csr_matrix
 
+
+def clr_normalize(adata: AnnData, inplace: bool = True, axis: int = 0) -> Union[None, AnnData]:
+    """
+    Taken from muon
+    https://github.com/scverse/muon/blob/master/muon/_prot/preproc.py
+    Apply the centered log ratio (CLR) transformation
+    to normalize counts in adata.X.
+
+    Args:
+        data: AnnData object with protein expression counts.
+        inplace: Whether to update adata.X inplace.
+        axis: Axis across which CLR is performed.
+    """
+
+    if axis not in [0, 1]:
+        raise ValueError("Invalid value for `axis` provided. Admissible options are `0` and `1`.")
+
+    if not inplace:
+        adata = adata.copy()
+
+    if issparse(adata.X) and axis == 0 and not isinstance(adata.X, csc_matrix):
+        x = csc_matrix(adata.X)
+    elif issparse(adata.X) and axis == 1 and not isinstance(adata.X, csr_matrix):
+        x = csr_matrix(adata.X)
+    else:
+        x = adata.X
+
+    if issparse(x):
+        x.data /= np.repeat(
+            np.exp(np.log1p(x).sum(axis=axis).A / x.shape[axis]), x.getnnz(axis=axis)
+        )
+        np.log1p(x.data, out=x.data)
+    else:
+        np.log1p(
+            x / np.exp(np.log1p(x).sum(axis=axis, keepdims=True) / x.shape[axis]),
+            out=x,
+        )
+
+    adata.X = x
+
+    return None if inplace else adata

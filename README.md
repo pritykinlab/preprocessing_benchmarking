@@ -1,27 +1,8 @@
 # TO DO
-## Dillon
-First do:
-- min cells (0.5% of cells)
-- total counts (10 counts per cells)
+- add sctransform
+- add CITE-seq
+- need to make file mapping system in order to use files as arguements (can't use argument values in filename of intermediate files)
+- highly variable genes need to go to the max value (edit the metadata to say how many genes are at max then pass that as the argument)
 
-Remove the intermediate files
-
-## Yujie
-HVG linked with different normalization
-- Pearson Residual Norm + Pearson Residual
-- scTransform
-- seuart + norm log zscore
-- seurat + norm log
-- Pearson Residuals Norm + Norm Log zscore
-
-## Yujie
-PC = [25, 50, 100]
-Different k=20, 40
-
-# scRNA-seq preprocessing benchmarking
-
-### Flexible pipeline
-
-- main.py
-
-- pipeline.py (fixed)
+# Long Term To Do:
+- subsets of the data (in rare subpopulations, I suspect that more HVG better because, a gene might not be HVG unless if you have enough cells of the small subpopulation)

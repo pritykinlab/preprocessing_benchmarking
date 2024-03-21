@@ -11,7 +11,7 @@ from itertools import product
 from sklearn.neighbors import NearestNeighbors
 from utils import run_parallel
 
-output_base_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/results"
+output_base_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/results/harmonized_perturb_seq_test"
 input_datasets_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/datasets/harmonized_perturb_datasets"
 
 metadata_df = pd.read_csv("../dataset_metadata/selected_datasets_summary.tsv", sep='\t')
