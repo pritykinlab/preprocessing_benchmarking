@@ -20,7 +20,7 @@ def write_output(adata, output_file):
             time.sleep(5)
         
 
-def clean(input_adata_file, output_file):
+def clean(input_adata_file, output_file, max_num_hvg_out_file):
     """Prepare 'cleaned_input.h5ad' from the input AnnData object."""
     adata = sc.read_h5ad(input_adata_file)
     adata.var_names_make_unique()
@@ -32,7 +32,11 @@ def clean(input_adata_file, output_file):
     adata.write_h5ad(output_file)
     print("Finished preparing 'cleaned_input.h5ad'")
 
-def clean_CITE_seq(input_adata_file, output_file, protein_processed_out_file):
+    with open(max_num_hvg_out_file, 'w') as f:
+        f.write(str(adata.shape[1]))
+
+
+def clean_CITE_seq(input_adata_file, output_file, protein_processed_out_file, max_num_hvg_out_file):
     adata = sc.read_h5ad(input_adata_file)
     adata.var_names_make_unique()
     rna_adata = adata[:, adata.var['feature_types'] == 'Gene Expression']
@@ -50,6 +54,9 @@ def clean_CITE_seq(input_adata_file, output_file, protein_processed_out_file):
     clr_normalize(protein_adata)
     sc.pp.scale(protein_adata, max_value=10)
     protein_adata.write_h5ad(protein_processed_out_file)
+
+    with open(max_num_hvg_out_file, 'w') as f:
+        f.write(str(rna_adata.shape[1]))
 
 
 def hvg(input_adata_file, output_file, hvg_method, num_hvg):
@@ -145,6 +152,8 @@ def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
     # Load the data
     adata = sc.read_h5ad(input_adata_file)
     adata_original = adata.copy()
+    if num_hvg == 'max_num_hvg':
+        num_hvg = adata.shape[1]
 
     # Apply HVG selection & normalization method
     if hvg_norm_combo == 'Pearson Residual + Pearson Residual':

@@ -12,12 +12,13 @@ from sklearn.neighbors import NearestNeighbors
 
 def run(dataset, default_slurm_params):
     name = dataset.split("/")[-1].split(".")[0]
-    output_base_dir = f"/Genomics/pritykinlab/yujie/preprocessing_benchmarking/results/harmonized_perturb_seq_new_pipeline2/{name}"
+    output_base_dir = f"/Genomics/pritykinlab/dillon/preprocessing_benchmarking/results/harmonized_perturb_seq/{name}"
 
     test_params= [
         # Specify each step with its parameters
-        (processing_steps.clean, {}),
-        (processing_steps.hvg_norm, {'hvg_norm_combo': ['Pearson Residual + Pearson Residual', 'Pearson Residual + norm_log_zscore', 'seurat + norm_log_zscore', 'seurat + norm_log'], 'num_hvg': [150, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]}),
+        (processing_steps.clean, {'max_num_hvg_out_file': os.path.join(output_base_dir, "max_num_hvg.txt")}),
+        (processing_steps.hvg_norm, {'hvg_norm_combo': ['Pearson Residual + Pearson Residual', 'Pearson Residual + norm_log_zscore', 'seurat + norm_log_zscore', 'seurat + norm_log'],
+                                     'num_hvg': [250, 500, 1000, 2000, 4000, 8000, 'max_num_hvg']}),
         (processing_steps.pca, {'max_pcs': [100]}),
         (processing_steps.evaluate, {'label_col': ['perturbation'],'num_nn': [20, 40],'num_pcs': [25, 50, 100]})
     ]
@@ -36,13 +37,14 @@ def run(dataset, default_slurm_params):
 
 def run_10x_CITE_seq(dataset, default_slurm_params):
     name = dataset.split("/")[-1].split(".")[0]
-    output_base_dir = f"/Genomics/pritykinlab/yujie/preprocessing_benchmarking/results/10x_CITE_seq/{name}"
-    protein_h5ad_file = f"/Genomics/pritykinlab/yujie/preprocessing_benchmarking/results/10x_CITE_seq/{name}/intermediate_files/protein.h5ad"
+    output_base_dir = f"/Genomics/pritykinlab/dillon/preprocessing_benchmarking/results/10x_CITE_seq/{name}"
+    protein_h5ad_file = f"/Genomics/pritykinlab/dillon/preprocessing_benchmarking/results/10x_CITE_seq/{name}/intermediate_files/protein.h5ad"
 
     test_params= [
         # Specify each step with its parameters
-        (processing_steps.clean_CITE_seq, {'protein_processed_out_file': protein_h5ad_file}),
-        (processing_steps.hvg_norm, {'hvg_norm_combo': ['Pearson Residual + Pearson Residual', 'Pearson Residual + norm_log_zscore', 'seurat + norm_log_zscore', 'seurat + norm_log'], 'num_hvg': [150, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000]}),
+        (processing_steps.clean_CITE_seq, {'protein_processed_out_file': protein_h5ad_file, 'max_num_hvg_out_file': os.path.join(output_base_dir, "max_num_hvg.txt")}),
+        (processing_steps.hvg_norm, {'hvg_norm_combo': ['Pearson Residual + Pearson Residual', 'Pearson Residual + norm_log_zscore', 'seurat + norm_log_zscore', 'seurat + norm_log'],
+                                     'num_hvg': [250, 500, 1000, 2000, 4000, 8000, 'max_num_hvg']}),
         (processing_steps.pca, {'max_pcs': [100]}),
         (processing_steps.evaluate_CITE_seq, {'num_nn': [20, 40],'num_pcs': [25, 50, 100], 'protein_h5ad_file': protein_h5ad_file})
     ]
