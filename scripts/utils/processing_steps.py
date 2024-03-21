@@ -20,6 +20,37 @@ def write_output(adata, output_file):
             time.sleep(5)
         
 
+def clean(input_adata_file, output_file):
+    """Prepare 'cleaned_input.h5ad' from the input AnnData object."""
+    adata = sc.read_h5ad(input_adata_file)
+    adata.var_names_make_unique()
+    if not isinstance(adata.X, scipy.sparse.spmatrix):
+        adata.X = csr_matrix(adata.X)
+    adata.layers['raw'] = adata.X
+    sc.pp.filter_cells(adata, min_genes=200)
+    sc.pp.filter_genes(adata, min_cells=5)
+    adata.write_h5ad(output_file)
+    print("Finished preparing 'cleaned_input.h5ad'")
+
+def clean_CITE_seq(input_adata_file, output_file, protein_processed_out_file):
+    adata = sc.read_h5ad(input_adata_file)
+    adata.var_names_make_unique()
+    rna_adata = adata[:, adata.var['feature_types'] == 'Gene Expression']
+    protein_adata = adata[:, adata.var['feature_types'] == 'Antibody Capture']
+    if not isinstance(rna_adata.X, scipy.sparse.spmatrix):
+        rna_adata.X = csr_matrix(rna_adata.X)
+    rna_adata.layers['raw'] = rna_adata.X
+    sc.pp.filter_cells(rna_adata, min_genes=200)
+    sc.pp.filter_genes(rna_adata, min_cells=5)
+    rna_adata.write_h5ad(output_file)
+
+    print("Finished preparing 'cleaned_input.h5ad'")
+    cells_in_rna_adata = rna_adata.obs.index
+    protein_adata = protein_adata[cells_in_rna_adata, :]
+    clr_normalize(protein_adata)
+    sc.pp.scale(protein_adata, max_value=10)
+    protein_adata.write_h5ad(protein_processed_out_file)
+
 
 def hvg(input_adata_file, output_file, hvg_method, num_hvg):
     print(f"input_adata_file: {input_adata_file}, output_file: {output_file}, hvg_method: {hvg_method}, num_hvg: {num_hvg}")
@@ -113,8 +144,6 @@ def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
 
     # Load the data
     adata = sc.read_h5ad(input_adata_file)
-    sc.pp.filter_cells(adata, min_genes=200)
-    sc.pp.filter_genes(adata, min_cells=adata.shape[0] * 0.0005) # adata.shape[0] gives the number of cells
     adata_original = adata.copy()
 
     # Apply HVG selection & normalization method
@@ -208,7 +237,6 @@ def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
             neighbors_count = np.sum(adata.obs[label_col][neighbors] == label_value)
 
             result_dict = {
-                'num_PCs': num_pcs,
                 'label': label_value,
                 'cell_index': i,
                 'neighbors_count': neighbors_count,
@@ -232,8 +260,6 @@ def evaluate_CITE_seq(input_adata_file, output_file, num_nn, num_pcs, protein_h5
 
     adata = sc.read_h5ad(input_adata_file)
     protein_adata = sc.read_h5ad(protein_h5ad_file)
-    clr_normalize(protein_adata)
-    sc.pp.scale(protein_adata, max_value=10)
 
     results_dict_list = []
     max_num_pcs = adata.obsm['X_pca'].shape[1]
@@ -243,23 +269,20 @@ def evaluate_CITE_seq(input_adata_file, output_file, num_nn, num_pcs, protein_h5
     nbrs = NearestNeighbors(n_neighbors=num_nn, algorithm='brute', n_jobs=-1).fit(X_pca)
     _, knn_indices = nbrs.kneighbors(X_pca)
 
-    for label_value in adata.obs[label_col].unique():
-        cells_with_label_idx = np.where(adata.obs[label_col] == label_value)[0]
 
-        for i in cells_with_label_idx:
-            neighbors = knn_indices[i]
-            neighbors_count = np.sum(adata.obs[label_col][neighbors] == label_value)
-
-            result_dict = {
-                'num_PCs': num_pcs,
-                'label': label_value,
-                'cell_index': i,
-                'neighbors_count': neighbors_count,
-            }
-            results_dict_list.append(result_dict)
+    results_dict_list = []
+    for cell_idx in range(adata.shape[0]):
+        neighbors = knn_indices[cell_idx]
+        protein_distance_sum = 0
+        for neighbor in neighbors:
+            protein_distance_sum += np.linalg.norm(protein_adata.X[cell_idx] - protein_adata.X[neighbor]) # 2 norm by default
+        result_dict = {
+            'cell_index': cell_idx,
+            'total_protein_neighbor_distance': protein_distance_sum,
+        }
+        results_dict_list.append(result_dict)
 
     results_df = pd.DataFrame(results_dict_list)
-    results_df = results_df.groupby(['label']).mean().reset_index().drop(columns=['cell_index'])
     results_df.to_csv(output_file, sep="\t", index=False)
     print(results_df)
 
@@ -310,3 +333,8 @@ def clr_normalize(adata: AnnData, inplace: bool = True, axis: int = 0) -> Union[
     adata.X = x
 
     return None if inplace else adata
+
+
+
+
+
