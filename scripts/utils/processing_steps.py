@@ -143,6 +143,7 @@ def norm(input_adata_file, output_file, norm_method):
 
 def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
     print(f"input_adata_file: {input_adata_file}, output_file: {output_file}, combo: {hvg_norm_combo}, num_hvg: {num_hvg}")
+    print(type(num_hvg))
     
     # Check if the output file already exists
     if os.path.exists(output_file):
@@ -152,8 +153,15 @@ def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
     # Load the data
     adata = sc.read_h5ad(input_adata_file)
     adata_original = adata.copy()
-    if num_hvg == 'max_num_hvg':
-        num_hvg = adata.shape[1]
+
+    # Convert num_hvg to integer if it is a string
+    if isinstance(num_hvg, str):
+        if num_hvg.isdigit():
+            num_hvg = int(num_hvg)
+        elif num_hvg == 'max_num_hvg':
+            num_hvg = adata.shape[1]
+        else:
+            raise ValueError("num_hvg must be an integer or 'max_num_hvg'")
 
     # Apply HVG selection & normalization method
     if hvg_norm_combo == 'Pearson Residual + Pearson Residual':
@@ -197,6 +205,8 @@ def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
         sc.pp.normalize_total(adata)
         sc.pp.log1p(adata)
         print("Finished normalization with log")
+    elif hvg_norm_combo == 'sctransform':
+        pass
     else:
         raise ValueError("Unsupported combo method")
 
