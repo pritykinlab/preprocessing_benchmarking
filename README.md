@@ -10,8 +10,5 @@
 - where are the replicates are there any
 - remove controls from the metric
 
-# TO DO
-- add sctransform
-
 # Long Term To Do:
 - subsets of the data (in rare subpopulations, I suspect that more HVG better because, a gene might not be HVG unless if you have enough cells of the small subpopulation)
