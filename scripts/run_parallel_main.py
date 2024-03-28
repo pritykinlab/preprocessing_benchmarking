@@ -26,7 +26,7 @@ sys.path.append("/Genomics/pritykinlab/dillon/software/slurm_submitter")
 import slurm_submitter
 
 slurm_params = {
-    'cpus-per-task': 2,
+    'cpus-per-task': 1,
     'mem-per-cpu': '32GB',
     # Add more parameters as needed
 }
@@ -38,5 +38,7 @@ arguments_list = [{'dataset':os.path.join(input_datasets_dir, row['Dataset']), '
 # arguments_list = arguments_list[:10] # if you want to run only the first couple datasets
 
 
-results = slurm_submitter.run(run_parallel.run, arguments_list, slurm_params=slurm_params, run_type='regular', max_num_jobs=5)
+error_log_file = "/Genomics/pritykinlab/dillon/preprocessing_benchmarking/scripts/error.log"
+
+results = slurm_submitter.run(run_parallel.run, arguments_list, slurm_params=slurm_params, run_type='slurm', max_num_jobs=1, error_log_file=error_log_file)
 

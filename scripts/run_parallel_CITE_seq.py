@@ -6,6 +6,7 @@ from itertools import product
 from utils import run_parallel
 import glob
 
+
 output_base_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/10x_CITE_seq"
 input_datasets_dir = "/Genomics/pritykinlab/yujie/preprocessing_benchmarking/datasets/CITE_seq/10x_CITE_seq/h5ad"
 
@@ -26,6 +27,13 @@ arguments_list = [{'dataset':dataset, 'default_slurm_params':slurm_params}
 
 print(arguments_list)
 
-results = slurm_submitter.run(run_parallel.run_10x_CITE_seq, arguments_list, slurm_params=slurm_params, run_type='regular', max_num_jobs=5)
+error_log_file = "/Genomics/pritykinlab/dillon/preprocessing_benchmarking/scripts/error.log"
+
+results = slurm_submitter.run(run_parallel.run_10x_CITE_seq,
+                              arguments_list,
+                              slurm_params=slurm_params,
+                              run_type='slurm',
+                              max_num_jobs=5,
+                              error_log_file=error_log_file)
 
 

@@ -7,6 +7,8 @@ from scipy.sparse import csr_matrix
 from itertools import product
 from sklearn.neighbors import NearestNeighbors
 import time
+import gzip
+import shutil
 
 def write_output(adata, output_file):
     # had to do this because can't write to directory with two different files?
@@ -143,7 +145,6 @@ def norm(input_adata_file, output_file, norm_method):
 
 def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
     print(f"input_adata_file: {input_adata_file}, output_file: {output_file}, combo: {hvg_norm_combo}, num_hvg: {num_hvg}")
-    print(type(num_hvg))
     
     # Check if the output file already exists
     if os.path.exists(output_file):
@@ -206,13 +207,117 @@ def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
         sc.pp.log1p(adata)
         print("Finished normalization with log")
     elif hvg_norm_combo == 'sctransform':
-        pass
+        print("Running sctransform")
+        print("Number of cells, gene", adata.shape)
+        # Example usage
+        input_dir = output_file + "_sctransform_input"
+        output_dir = output_file + "_sctransform_output"
+        write_10x_mtx_gz(input_dir, adata)
+        cmd = f"""
+        /Genomics/pritykinlab/dillon/software/miniconda/envs/envs/seurat/bin/Rscript utils/sctransform.R {input_dir} {output_dir} {num_hvg}
+        """
+        if os.path.exists(output_dir):
+            # remove the output directory if it already exists
+            os.system(f"rm -r {output_dir}")
+        exit_status = os.system(cmd)
+
+        if exit_status != 0:
+            raise Exception("R script execution was not successful.")
+
+        time.sleep(60) # wait for everything to be written
+        adata = read_10x_mtx_gz(output_dir)
+        adata.obs = adata_original.obs
     else:
         raise ValueError("Unsupported combo method")
 
     # Save the processed data
     write_output(adata, output_file)
     print("Output file saved:", output_file)
+
+def write_10x_mtx_gz(output_dir, adata):
+    """
+    Writes the AnnData object to files compatible with the 10x format and compresses them with gzip.
+    Parameters:
+    - output_dir: Directory to write the 10x files to.
+    - adata: The AnnData object.
+    """
+    print("Writing 10x File")
+    # Create output directory if it doesn't exist
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Extract the gene expression matrix (in COO format) and transpose it
+    mat = adata.X.T
+
+    # Convert the matrix to integer type if it's not already
+    if mat.dtype != 'int':
+        mat = mat.astype('int')
+
+    # Check if the matrix is sparse, and convert to COO format if it's not
+    if not isinstance(mat, scipy.sparse.coo_matrix):
+        mat = scipy.sparse.coo_matrix(mat)
+
+    # Write the matrix to a .mtx file and then compress it
+    mtx_path = os.path.join(output_dir, 'matrix.mtx')
+    scipy.io.mmwrite(mtx_path, mat)
+    with open(mtx_path, 'rb') as f_in:
+        with gzip.open(mtx_path + '.gz', 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)
+    os.remove(mtx_path)
+
+    # Function to compress a file
+    def compress_file(input_path):
+        with open(input_path, 'rb') as f_in:
+            with gzip.open(input_path + '.gz', 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+        os.remove(input_path)
+
+    # Write genes.tsv and compress it
+    genes = adata.var_names
+    cleaned_genes = []
+
+    gene_counts = {}
+    for gene in adata.var_names:
+        # Replace newline with double dashes and underscore with dash
+        new_gene = gene.replace('\n', '--').replace('_', '-')
+
+        # Count occurrences and append a number if there's a duplicate
+        if new_gene in gene_counts:
+            gene_counts[new_gene] += 1
+            new_gene += f".{gene_counts[new_gene]}"
+        else:
+            gene_counts[new_gene] = 0
+
+        cleaned_genes.append(new_gene)
+
+    genes = pd.DataFrame({'gene_ids': cleaned_genes})
+    genes_path = os.path.join(output_dir, 'features.tsv')
+    genes['genes'] = genes['gene_ids']
+    genes.to_csv(genes_path, sep='\t', index=False, header=False)
+    compress_file(genes_path)
+
+    # Write barcodes.tsv and compress it
+    barcodes = pd.DataFrame({'barcodes': adata.obs_names})
+    barcodes_path = os.path.join(output_dir, 'barcodes.tsv')
+    barcodes.to_csv(barcodes_path, sep='\t', index=False, header=False)
+    compress_file(barcodes_path)
+    print("Finisehd Writing 10x files (this is in python)")
+
+from anndata import AnnData
+
+def read_10x_mtx_gz(input_dir):
+    # Read the matrix
+    import h5py
+
+    with h5py.File(os.path.join(input_dir, 'matrix.h5'), 'r') as file:
+        matrix = file['count_matrix'][:]
+
+    genes = pd.read_csv(os.path.join(input_dir, 'features.tsv.gz'), names=['gene_symbol'], header=None, sep='\t',index_col=0)
+    barcodes = pd.read_csv(os.path.join(input_dir, 'barcodes.tsv.gz'), names=['cell_barcode'], header=None, index_col=0)
+
+    # Create the AnnData object
+    adata = AnnData(X=matrix.T, obs=barcodes, var=genes)
+    print(adata)
+    return adata
 
 
 
@@ -229,7 +334,7 @@ def pca(input_adata_file, output_file, max_pcs):
     adata.write_h5ad(output_file)
     print("Finished pca")
 
-def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
+def evaluate_old(input_adata_file, output_file, label_col, num_nn, num_pcs):
     print(f"input_adata_file: {input_adata_file}")
     print(f"output_file: {output_file}")
     print(f"label_col: {label_col}")
@@ -265,8 +370,67 @@ def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
     results_df = pd.DataFrame(results_dict_list)
     results_df = results_df.groupby(['label']).mean().reset_index().drop(columns=['cell_index'])
     results_df.to_csv(output_file, sep="\t", index=False)
-    print(results_df)
 
+def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
+    print(f"input_adata_file: {input_adata_file}")
+    print(f"output_file: {output_file}")
+    print(f"label_col: {label_col}")
+    print(f"num_nn: {num_nn}")
+    print(f"num_pcs: {num_pcs}")
+
+    adata = sc.read_h5ad(input_adata_file)
+
+    # Precompute the label counts
+    label_counts = adata.obs[label_col].value_counts()
+    sufficient_labels = label_counts > num_nn
+
+    # Precompute indices for each label
+    label_indices = {label: (adata.obs[label_col] == label) for label in label_counts.index}
+
+    # Check for sufficient PCs
+    max_num_pcs = adata.obsm['X_pca'].shape[1]
+    if num_pcs > max_num_pcs:
+        raise ValueError("Not enough PCs to subset")
+    X_pca = adata.obsm['X_pca'][:, :num_pcs]
+
+
+    results_dict_list = []
+
+    for cell_idx in range(adata.shape[0]):
+        label = adata.obs[label_col][cell_idx]
+        # if label is nan just skp
+        if pd.isna(label):
+            continue
+
+        # Skip labels that do not have sufficient instances
+        if not sufficient_labels[label]:
+            continue
+
+        same_label_indices = label_indices[label]
+        diff_label_indices = ~same_label_indices
+
+        distances = np.linalg.norm(X_pca - X_pca[cell_idx], axis=1)
+        same_label_dists = distances[same_label_indices]
+        diff_label_dists = distances[diff_label_indices]
+
+        nth_neighbor_dist = same_label_dists[num_nn]
+
+        num_closer_diff_label = np.sum(diff_label_dists < nth_neighbor_dist)
+
+        num_cells_of_label = label_counts[label]
+        num_cells_of_diff_label = adata.shape[0] - num_cells_of_label
+        enrichment = num_closer_diff_label / num_cells_of_diff_label * num_cells_of_label
+        enrichment = enrichment / num_nn
+
+        results_dict_list.append({
+            'label': label,
+            'cell_index': cell_idx,
+            'neighbor_enrichment': enrichment,
+        })
+
+    results_df = pd.DataFrame(results_dict_list)
+    results_df = results_df.groupby(['label']).mean().reset_index().drop(columns=['cell_index'])
+    results_df.to_csv(output_file, sep="\t", index=False)
 
 
 def evaluate_CITE_seq(input_adata_file, output_file, num_nn, num_pcs, protein_h5ad_file):
@@ -303,13 +467,12 @@ def evaluate_CITE_seq(input_adata_file, output_file, num_nn, num_pcs, protein_h5
 
     results_df = pd.DataFrame(results_dict_list)
     results_df.to_csv(output_file, sep="\t", index=False)
-    print(results_df)
 
 
 
 from typing import Optional, Iterable, Tuple, Union
-from anndata import AnnData
 from scipy.sparse import issparse, csc_matrix, csr_matrix
+
 
 
 def clr_normalize(adata: AnnData, inplace: bool = True, axis: int = 0) -> Union[None, AnnData]:

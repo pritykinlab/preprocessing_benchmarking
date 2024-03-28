@@ -17,7 +17,7 @@ import itertools
 import os
 
 
-def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_params, verbose=False, parallel_type="slurm", remove_intermediate=True):
+def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_params, verbose=False, parallel_type="slurm", remove_intermediate=True, error_log_file=None):
     """  Executes Pipeline on scRNA-seq data based on provided steps and parameters.
     input_adata_file:
         Adata file must have a raw input
@@ -148,8 +148,8 @@ def run_pipeline(input_adata_file, output_dir, pipeline_params, default_slurm_pa
         if verbose:
             print(f"Running step {step_num + 1} with {len(arguments_l)} combinations")
         if arguments_l:
-            slurm_submitter.run(step_func, arguments_l, slurm_params=default_slurm_params, run_type=parallel_type)
-        time.sleep(30)
+            slurm_submitter.run(step_func, arguments_l, slurm_params=default_slurm_params, run_type=parallel_type, error_log_file=error_log_file, max_num_jobs=None)
+            time.sleep(30)
 
     # Handling the results
     all_metrics_dfs = []
