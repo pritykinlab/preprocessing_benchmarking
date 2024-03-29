@@ -3,6 +3,7 @@
 - remove controls from the metric
 
 # Yujie To Do:
+- run a test with max hvg, test num_PCs: make plots: 20, 30, 40, 50, 60, 70, 80. 90, 100, 125, 150, 175, 200
 - many dataset from large dataset
 - identify the control cells (add a new boolean column into adata.obs "is_control_or_not")
 - prepare a slide to explain zscore methods
