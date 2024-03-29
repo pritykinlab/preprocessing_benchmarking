@@ -1,14 +1,16 @@
 # Dillon To Do:
 - normalize the metric
+- remove controls from the metric
 
 # Yujie To Do:
-- aggregate the results by doing zscore then plotting all of the results on one dataset (num_PCs x num_k x num_norm plots)
 - many dataset from large dataset
+- identify the control cells (add a new boolean column into adata.obs "is_control_or_not")
+- prepare a slide to explain zscore methods
+- automate the plot script
 
 # TO DO 1
-- identify the control cells
 - where are the replicates are there any
-- remove controls from the metric
+
 
 # Long Term To Do:
 - subsets of the data (in rare subpopulations, I suspect that more HVG better because, a gene might not be HVG unless if you have enough cells of the small subpopulation)
