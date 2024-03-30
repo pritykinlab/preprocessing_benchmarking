@@ -25,6 +25,7 @@
 ## Normalization Techniques
 - Weinreb et al (2018) used a simple extension of CPM that excludes genes that account for at least 5% of the total counts in any cell, when calculating their size factors
 - Scran
-- 
 
-- one paper that uses the raw data (like all the noise measured droplets)
+# Miscellaneous
+- Ground truth is known pathways
+
