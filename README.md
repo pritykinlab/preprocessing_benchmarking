@@ -16,7 +16,15 @@
 # Long Term To Do:
 - subsets of the data (in rare subpopulations, I suspect that more HVG better because, a gene might not be HVG unless if you have enough cells of the small subpopulation)
 
-# incorporate new lower dimensional embeddings
+# More Things to benchmark
+## incorporate new lower dimensional embeddings
 - https://www.biorxiv.org/content/biorxiv/early/2024/03/27/2024.03.23.586420.full.pdf (GLM PCA)
 - L1 and L2 PCA
 - SCVI
+
+## Normalization Techniques
+- Weinreb et al (2018) used a simple extension of CPM that excludes genes that account for at least 5% of the total counts in any cell, when calculating their size factors
+- Scran
+- 
+
+- one paper that uses the raw data (like all the noise measured droplets)
