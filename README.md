@@ -29,3 +29,5 @@
 # Miscellaneous
 - Ground truth is known pathways
 
+# Atlas Papers
+- https://www.nature.com/articles/s41588-024-01688-9
