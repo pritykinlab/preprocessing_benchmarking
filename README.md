@@ -8,6 +8,7 @@
 - identify the control cells (add a new boolean column into adata.obs "is_control_or_not")
 - prepare a slide to explain zscore methods
 - automate the plot script
+- add num_PCs [5, 500] to show baseline
 
 # TO DO 1
 - where are the replicates are there any
