@@ -11,6 +11,12 @@
 - add num_PCs [5, 500] to show baseline
 - fix the HVG trend zscore plot: max_num_hvg on X axis to show actual number
 
+# plots for different qs:
+- Does higher number of HVGs do better?
+- Which number of PCs and norm method is best => assuming that max_hvg is best.
+    - does one norm method work better at all PCs vs another norm method
+- Which cell types perform better? (rare cell types do better after ...)
+
 # TO DO 1
 - where are the replicates are there any
 
