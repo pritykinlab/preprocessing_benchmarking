@@ -8,6 +8,14 @@
 - identify the control cells (add a new boolean column into adata.obs "is_control_or_not")
 - prepare a slide to explain zscore methods
 - automate the plot script
+- add num_PCs [5, 500] to show baseline
+- fix the HVG trend zscore plot: max_num_hvg on X axis to show actual number
+
+# plots for different qs:
+- Does higher number of HVGs do better?
+- Which number of PCs and norm method is best => assuming that max_hvg is best.
+    - does one norm method work better at all PCs vs another norm method
+- Which cell types perform better? (rare cell types do better after ...)
 
 # TO DO 1
 - where are the replicates are there any
@@ -31,3 +39,4 @@
 
 # Atlas Papers
 - https://www.nature.com/articles/s41588-024-01688-9
+- https://www.nature.com/articles/s41586-019-1373-2
