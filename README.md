@@ -40,3 +40,8 @@
 # Atlas Papers
 - https://www.nature.com/articles/s41588-024-01688-9
 - https://www.nature.com/articles/s41586-019-1373-2
+
+
+NEW!!
+- Create a new github. Make sure to document the code from original source downloading
+- CITE-seq: check raw counts of scRNA and ADT, and see if number of genes >10k
