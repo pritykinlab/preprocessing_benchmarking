@@ -1,47 +1,15 @@
-# Dillon To Do:
-- normalize the metric
-- remove controls from the metric
+# Benchmarking computational analysis of scRNA-seq data using external biological context
+Repository for systematic benchmarking of computational methods and parameters for scRNA-seq data analysis.
 
-# Yujie To Do:
-- run a test with max hvg, test num_PCs: make plots: 20, 30, 40, 50, 60, 70, 80. 90, 100, 125, 150, 175, 200
-- many dataset from large dataset
-- identify the control cells (add a new boolean column into adata.obs "is_control_or_not")
-- prepare a slide to explain zscore methods
-- automate the plot script
-- add num_PCs [5, 500] to show baseline
-- fix the HVG trend zscore plot: max_num_hvg on X axis to show actual number
+## Directory:
+- `analysis/` - Scripts to visualize trends and patterns from resulting metrics files. 
+- `dataset_metadata/` - Metadata files containing information in datasets attributes, such as number of cells/genes, file size, and whether it has raw counts.
+- `download_dataset_scripts` - Notebooks for downloading datasets from original sources, as well as steps for preprocessing raw data into a format ready for benchmarking analysis.
+  - `CITE_seq` - Notebooks to download CITE-seq datasets from original publications and steps to generate processed adata files.
+  - `TCR_BCR_seq` - Notebooks to download scTCR-seq and scBCR-seq datasets from original publications and steps to generate processed adata files.
+  - `lineage_tracing` - Notebooks to download lineage tracing datasets from original publications and steps to generate processed adata files.
+  - `perturbseq` - Notebooks to download Perturb-seq and CROP-seq datasets from original publications and steps to generate processed adata files.
+- `scripts/` - Scripts for various downstream analysis
+  - `misc` - Miscellaneous scripts such as pilot data analysis.
+  - `utils` - Including functions used in the benchmarking pipeline as well as scripts for generating results in parallel.
 
-# plots for different qs:
-- Does higher number of HVGs do better?
-- Which number of PCs and norm method is best => assuming that max_hvg is best.
-    - does one norm method work better at all PCs vs another norm method
-- Which cell types perform better? (rare cell types do better after ...)
-
-# TO DO 1
-- where are the replicates are there any
-
-
-# Long Term To Do:
-- subsets of the data (in rare subpopulations, I suspect that more HVG better because, a gene might not be HVG unless if you have enough cells of the small subpopulation)
-
-# More Things to benchmark
-## incorporate new lower dimensional embeddings
-- https://www.biorxiv.org/content/biorxiv/early/2024/03/27/2024.03.23.586420.full.pdf (GLM PCA)
-- L1 and L2 PCA
-- SCVI
-
-## Normalization Techniques
-- Weinreb et al (2018) used a simple extension of CPM that excludes genes that account for at least 5% of the total counts in any cell, when calculating their size factors
-- Scran
-
-# Miscellaneous
-- Ground truth is known pathways
-
-# Atlas Papers
-- https://www.nature.com/articles/s41588-024-01688-9
-- https://www.nature.com/articles/s41586-019-1373-2
-
-
-NEW!!
-- Create a new github. Make sure to document the code from original source downloading
-- CITE-seq: check raw counts of scRNA and ADT, and see if number of genes >10k
