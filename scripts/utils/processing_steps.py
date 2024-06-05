@@ -212,20 +212,26 @@ def hvg_norm(input_adata_file, output_file, hvg_norm_combo, num_hvg):
         # Example usage
         input_dir = output_file + "_sctransform_input"
         output_dir = output_file + "_sctransform_output"
+        print("Writing data")
         write_10x_mtx_gz(input_dir, adata)
+        print("Finished writing data")
         cmd = f"""
         /Genomics/pritykinlab/dillon/software/miniconda/envs/envs/seurat/bin/Rscript utils/sctransform.R {input_dir} {output_dir} {num_hvg}
         """
         if os.path.exists(output_dir):
             # remove the output directory if it already exists
             os.system(f"rm -r {output_dir}")
+        print("Running R command")
         exit_status = os.system(cmd)
+        print("Finished Running R command (in python)")
 
         if exit_status != 0:
             raise Exception("R script execution was not successful.")
 
         time.sleep(60) # wait for everything to be written
+        print("Reading 1cx output into python")
         adata = read_10x_mtx_gz(output_dir)
+        print("Finised reading into python")
         adata.obs = adata_original.obs
     else:
         raise ValueError("Unsupported combo method")
@@ -371,67 +377,50 @@ def evaluate_old(input_adata_file, output_file, label_col, num_nn, num_pcs):
     results_df = results_df.groupby(['label']).mean().reset_index().drop(columns=['cell_index'])
     results_df.to_csv(output_file, sep="\t", index=False)
 
-def evaluate(input_adata_file, output_file, label_col, num_nn, num_pcs):
+from scipy.spatial.distance import squareform, pdist
+
+def discrete_dissimilarities(adata, label_col):
+    # Calculate the pairwise dissimilarity using a discrete metric
+    labels = adata.obs[label_col].astype('category').cat.codes.to_numpy()
+    dissimilarity_matrix = squareform(pdist(labels[:, None], metric='hamming'))
+
+
+def calculate_results(adata, dissimilarity_matrix, output_file, num_nn, num_pcs):
+    max_num_pcs = adata.obsm['X_pca'].shape[1]
+    if num_pcs > max_num_pcs:
+        raise ValueError("Not enough PCs to subset")
+    X_pca = adata.obsm['X_pca'][:, :num_pcs]
+    np.fill_diagonal(dissimilarity_matrix, np.nan)
+    avg_dissimilarity = np.nanmean(dissimilarity_matrix, axis=1)
+    # Calculate avg_KNN_dissimilarity using k-nearest neighbors on PCA space
+    nbrs = NearestNeighbors(n_neighbors=num_nn+1, algorithm='brute', n_jobs=-1).fit(X_pca)
+    distances, indices = nbrs.kneighbors(X_pca)
+    
+    avg_KNN_dissimilarity = np.array([dissimilarity_matrix[i, ind[1:]].mean() for i, ind in enumerate(indices)])
+
+    # Calculate log_dissimilarity_ratio for each cell
+    log_dissimilarity_ratio = np.log2((avg_KNN_dissimilarity + 0.1) / (avg_dissimilarity + 0.1))
+
+    # Create a DataFrame for results
+    results_df = pd.DataFrame({
+        'cell_index': np.arange(adata.shape[0]),
+        'avg_KNN_dissimilarity': avg_KNN_dissimilarity,
+        'avg_dissimilarity': avg_dissimilarity,
+        'log_dissimilarity_ratio': log_dissimilarity_ratio
+    })
+    return results_df
+
+def evaluate_discrete(input_adata_file, output_file, label_col, num_nn, num_pcs):
     print(f"input_adata_file: {input_adata_file}")
     print(f"output_file: {output_file}")
     print(f"label_col: {label_col}")
     print(f"num_nn: {num_nn}")
     print(f"num_pcs: {num_pcs}")
-
     adata = sc.read_h5ad(input_adata_file)
-
-    # Precompute the label counts
-    label_counts = adata.obs[label_col].value_counts()
-    sufficient_labels = label_counts > num_nn
-
-    # Precompute indices for each label
-    label_indices = {label: (adata.obs[label_col] == label) for label in label_counts.index}
-
-    # Check for sufficient PCs
-    max_num_pcs = adata.obsm['X_pca'].shape[1]
-    if num_pcs > max_num_pcs:
-        raise ValueError("Not enough PCs to subset")
-    X_pca = adata.obsm['X_pca'][:, :num_pcs]
-
-
-    results_dict_list = []
-
-    for cell_idx in range(adata.shape[0]):
-        label = adata.obs[label_col][cell_idx]
-        # if label is nan just skp
-        if pd.isna(label):
-            continue
-
-        # Skip labels that do not have sufficient instances
-        if not sufficient_labels[label]:
-            continue
-
-        same_label_indices = label_indices[label]
-        diff_label_indices = ~same_label_indices
-
-        distances = np.linalg.norm(X_pca - X_pca[cell_idx], axis=1)
-        same_label_dists = distances[same_label_indices]
-        diff_label_dists = distances[diff_label_indices]
-
-        nth_neighbor_dist = same_label_dists[num_nn]
-
-        num_closer_diff_label = np.sum(diff_label_dists < nth_neighbor_dist)
-
-        num_cells_of_label = label_counts[label]
-        num_cells_of_diff_label = adata.shape[0] - num_cells_of_label
-        enrichment = num_closer_diff_label / num_cells_of_diff_label * num_cells_of_label
-        enrichment = enrichment / num_nn
-
-        results_dict_list.append({
-            'label': label,
-            'cell_index': cell_idx,
-            'neighbor_enrichment': enrichment,
-        })
-
-    results_df = pd.DataFrame(results_dict_list)
-    results_df = results_df.groupby(['label']).mean().reset_index().drop(columns=['cell_index'])
+    dissimilarity_matrix = discrete_dissimilarities(adata, label_col)
+    results_df = calculate_results(adata, dissimilarity_matrix, output_file, num_nn, num_pcs)
+    results_df['label'] = adata.obs[label_col].values
     results_df.to_csv(output_file, sep="\t", index=False)
-
 
 def evaluate_CITE_seq(input_adata_file, output_file, num_nn, num_pcs, protein_h5ad_file):
     print(f"input_adata_file: {input_adata_file}")
@@ -443,31 +432,9 @@ def evaluate_CITE_seq(input_adata_file, output_file, num_nn, num_pcs, protein_h5
 
     adata = sc.read_h5ad(input_adata_file)
     protein_adata = sc.read_h5ad(protein_h5ad_file)
-
-    results_dict_list = []
-    max_num_pcs = adata.obsm['X_pca'].shape[1]
-    if num_pcs > max_num_pcs:
-        raise ValueError("Not enough PCs to subset")
-    X_pca = adata.obsm['X_pca'][:, :num_pcs]
-    nbrs = NearestNeighbors(n_neighbors=num_nn, algorithm='brute', n_jobs=-1).fit(X_pca)
-    _, knn_indices = nbrs.kneighbors(X_pca)
-
-
-    results_dict_list = []
-    for cell_idx in range(adata.shape[0]):
-        neighbors = knn_indices[cell_idx]
-        protein_distance_sum = 0
-        for neighbor in neighbors:
-            protein_distance_sum += np.linalg.norm(protein_adata.X[cell_idx] - protein_adata.X[neighbor]) # 2 norm by default
-        result_dict = {
-            'cell_index': cell_idx,
-            'total_protein_neighbor_distance': protein_distance_sum,
-        }
-        results_dict_list.append(result_dict)
-
-    results_df = pd.DataFrame(results_dict_list)
+    dissimilarity_matrix = squareform(pdist(protein_adata.X, 'euclidean'))
+    results_df = calculate_results(adata, dissimilarity_matrix, output_file, num_nn, num_pcs)
     results_df.to_csv(output_file, sep="\t", index=False)
-
 
 
 from typing import Optional, Iterable, Tuple, Union
